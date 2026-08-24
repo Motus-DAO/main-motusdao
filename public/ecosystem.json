@@ -1,0 +1,62 @@
+{
+  "name": "MotusDAO",
+  "url": "https://www.motusdao.org/",
+  "description": "Clinical, community, and technological infrastructure for living networks of mental health care.",
+  "primaryCta": {
+    "label": { "es": "Explora el ecosistema", "en": "Explore the ecosystem" },
+    "paths": [
+      {
+        "id": "users",
+        "label": { "es": "Usuarios", "en": "Users" },
+        "href": "https://app.motusdao.org/"
+      },
+      {
+        "id": "professionals",
+        "label": {
+          "es": "Profesionales de salud mental",
+          "en": "Mental health professionals"
+        },
+        "href": "https://app.motusdao.org/academia"
+      },
+      {
+        "id": "community-investors",
+        "label": {
+          "es": "Comunidad e inversores",
+          "en": "Community & investors"
+        },
+        "href": "https://www.motusdao.org/gobernanza-motusdao"
+      }
+    ]
+  },
+  "products": [
+    {
+      "id": "hub",
+      "name": "Hub",
+      "url": "https://app.motusdao.org/"
+    },
+    {
+      "id": "academia",
+      "name": "Academia",
+      "url": "https://app.motusdao.org/academia"
+    },
+    {
+      "id": "psychat",
+      "name": "PsyChat / MotusAI",
+      "url": "https://psychat.motusdao.org/"
+    },
+    {
+      "id": "metaverso",
+      "name": "Metaverso",
+      "url": "https://play.workadventu.re/@/motusdao/motusdao/great-place-to-work"
+    },
+    {
+      "id": "gobernanza",
+      "name": "Gobernanza",
+      "url": "https://www.motusdao.org/gobernanza-motusdao"
+    }
+  ],
+  "agents": {
+    "mcp": "https://mcp.motusdao.org/mcp",
+    "llmsTxt": "https://www.motusdao.org/llms.txt"
+  }
+}

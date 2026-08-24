@@ -1,0 +1,29 @@
+# MotusDAO
+
+> MotusDAO es una infraestructura clínica, comunitaria y tecnológica para construir redes vivas de cuidado en salud mental. Integra privacidad por diseño, coordinación distribuida, educación clínica y herramientas de cuidado híbrido humano–IA.
+
+## Main
+
+- [Home](https://www.motusdao.org/): Manifesto and product gateway
+- [Explore ecosystem](https://www.motusdao.org/#explora): Users · Professionals · Community/Investors
+- [Principles](https://www.motusdao.org/#principios): Network invariants
+- [FAQ](https://www.motusdao.org/#faq): Extractable Q&A
+- [3D map](https://www.motusdao.org/#ecosistema-3d): Optional interactive explorer
+
+## Products
+
+- [Hub](https://app.motusdao.org/): Primary care and practice application
+- [Academia](https://app.motusdao.org/academia): Professional training
+- [PsyChat / MotusAI](https://psychat.motusdao.org/): Hybrid conversational surface (does not replace clinical judgment)
+- [Metaverso](https://play.workadventu.re/@/motusdao/motusdao/great-place-to-work): Immersive community spaces
+- [Gobernanza](https://www.motusdao.org/gobernanza-motusdao): Governance and participation
+
+## Machine
+
+- [ecosystem.json](https://www.motusdao.org/ecosystem.json): Machine-readable product catalog
+- [Motus Knowledge MCP](https://mcp.motusdao.org/mcp): Grounded MotusDAO documentation for agents
+
+## Notes
+
+- Clinical judgment remains with licensed professionals.
+- MotusDAO does not guarantee patients, income, or clinical outcomes.

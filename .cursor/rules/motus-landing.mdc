@@ -1,0 +1,16 @@
+---
+description: MotusDAO LandingMotus invariants — MCP, locks, claims, SSR
+alwaysApply: true
+---
+
+# LandingMotus agent rules
+
+1. Read `docs/STYLE_LOCK.md` before UI or IA changes. Do not unlock without user approval.
+2. Ground Motus product/brand facts via Motus Knowledge MCP (`motus-mcp-context` / `https://mcp.motusdao.org/mcp`). Do not invent MotusDAO.
+3. Public copy: protocol-level voice (`motus-protocol-copy`); run `motus-claims-guardrails` before treating copy as final.
+4. Primary CTA: **Explora el ecosistema** → Users / Mental Health Professionals / Community·Investors.
+5. InfiniteMenu / WebGL is below-fold or `#ecosistema-3d` only — never the first viewport or sole content source.
+6. Prefer SSR for manifesto and product copy; client components for theme, i18n toggle, motion, WebGL.
+7. Default language Spanish; English via toggle. Keep string dictionaries centralized.
+8. For new sites / tenants / Hermes loops, use `/motus-site-os` and `docs/AGENTIC_OS.md`.
+9. Documentation of lasting decisions goes in `docs/` or skills — not only chat.
