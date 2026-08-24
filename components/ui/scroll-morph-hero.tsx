@@ -26,16 +26,28 @@ interface FlipCardProps {
   };
   backEyebrow: string;
   backLabel: string;
+  width: number;
+  height: number;
+  pinCenter?: boolean;
 }
 
 const CARD_W = 72;
 const CARD_H = 102;
+const CARD_W_MOBILE = 46;
+const CARD_H_MOBILE = 64;
+const MOBILE_BP = 768;
+/** Half of intro max-w-[11.5rem] plus gap so type sits in the hole. */
+const MOBILE_TEXT_HALF = 92;
+const MOBILE_INNER_GAP = 28;
 
 function FlipCard({
   src,
   target,
   backEyebrow,
   backLabel,
+  width,
+  height,
+  pinCenter = false,
 }: FlipCardProps) {
   return (
     <motion.div
@@ -49,8 +61,16 @@ function FlipCard({
       transition={{ type: "spring", stiffness: 42, damping: 16 }}
       style={{
         position: "absolute",
-        width: CARD_W,
-        height: CARD_H,
+        ...(pinCenter
+          ? {
+              left: "50%",
+              top: "50%",
+              marginLeft: -width / 2,
+              marginTop: -height / 2,
+            }
+          : {}),
+        width,
+        height,
         transformStyle: "preserve-3d",
         perspective: "1000px",
       }}
@@ -197,6 +217,18 @@ export default function ScrollMorphHero({
   const contentOpacity = Math.min(Math.max((morphValue - 0.45) / 0.35, 0), 1);
   const centerOpacity = Math.max(1 - morphValue * 1.7, 0);
 
+  const isMobile =
+    containerSize.width === 0 || containerSize.width < MOBILE_BP;
+  const cardW = isMobile ? CARD_W_MOBILE : CARD_W;
+  const cardH = isMobile ? CARD_H_MOBILE : CARD_H;
+  const minDimension = Math.min(containerSize.width, containerSize.height);
+  const circleRadius = isMobile
+    ? Math.max(
+        MOBILE_TEXT_HALF + MOBILE_INNER_GAP + Math.hypot(cardW, cardH) / 2,
+        Math.min(containerSize.width * 0.5, minDimension * 0.48),
+      )
+    : Math.min(minDimension * 0.34, 340);
+
   return (
     <div
       ref={trackRef}
@@ -226,7 +258,7 @@ export default function ScrollMorphHero({
           >
             {introTitle}
           </p>
-          <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--text-muted)]">
+          <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)] md:mt-5 md:text-[11px] md:tracking-[0.28em]">
             {introHint}
           </p>
           {/* White mark on dark; black mark on light. */}
@@ -235,14 +267,14 @@ export default function ScrollMorphHero({
             alt="MotusDAO"
             width={48}
             height={48}
-            className="mt-6 hidden h-12 w-12 object-contain dark:block"
+            className="mt-4 hidden h-8 w-8 object-contain dark:block md:mt-6 md:h-12 md:w-12"
           />
           <img
             src="/brand/motus-mark-black.png"
             alt="MotusDAO"
             width={48}
             height={48}
-            className="mt-6 block h-12 w-12 object-contain dark:hidden"
+            className="mt-4 block h-8 w-8 object-contain dark:hidden md:mt-6 md:h-12 md:w-12"
           />
         </div>
 
@@ -272,12 +304,6 @@ export default function ScrollMorphHero({
 
         <div className="relative flex h-full w-full items-center justify-center">
           {images.map((src, i) => {
-            const isMobile = containerSize.width < 768;
-            const minDimension = Math.min(
-              containerSize.width,
-              containerSize.height,
-            );
-            const circleRadius = Math.min(minDimension * 0.34, 340);
             const circleAngle = (i / TOTAL_IMAGES) * 360;
             const circleRad = (circleAngle * Math.PI) / 180;
             const circlePos = {
@@ -320,6 +346,9 @@ export default function ScrollMorphHero({
                 target={target}
                 backEyebrow={cardBackEyebrow}
                 backLabel={cardBackLabel}
+                width={cardW}
+                height={cardH}
+                pinCenter={isMobile}
               />
             );
           })}
