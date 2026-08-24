@@ -15,8 +15,7 @@ Hero (morph cards: hybrid line → manifesto + CTA on scroll)
        ├─ Mental health professionals
        └─ Community / investors
   → Living network / layers (protocol copy + scroll-synced sequence)
-  → Product map (outbound links)
-  → Principles (privacy, consent, hybrid care)
+  → Network invariants (bento + outbound surface links)
   → Optional #ecosistema-3d (InfiniteMenu)
   → FAQ
   → Final CTA → tri-path
@@ -26,9 +25,9 @@ Hero (morph cards: hybrid line → manifesto + CTA on scroll)
 
 | Path (proposed) | Audience | Job |
 |-----------------|----------|-----|
-| `/para-ti` | Users | How to start care / Hub |
+| `/para-ti` | Users | How to start care / Wellness Hub |
 | `/profesionales` | Psychologists | Community, Academia, practice tools |
-| `/comunidad` | Builders / members | Participate, govern |
+| `/comunidad` | Builders / members | Participate, agents |
 | `/inversores` | Investors / partners | Mission, model, contact (claims-safe) |
 
 Exact slugs may change; keep tri-path labels stable in UX.
@@ -39,11 +38,11 @@ Do not rebuild these inside the landing; **link**:
 
 | Surface | URL (canonical) |
 |---------|-----------------|
-| Hub | https://app.motusdao.org/ |
+| Wellness Hub | https://app.motusdao.org/ |
 | Academia | https://app.motusdao.org/academia |
-| PsyChat | https://psychat.motusdao.org/ |
-| Metaverso | WorkAdventure Motus map |
-| Gobernanza / institutional | motusdao.org governance content |
+| PsyChat / MotusAI | https://chat.motusdao.org/ |
+| Metaverso | https://metaverso.motusdao.org/ |
+| Agents | https://agents.motusdao.org/ |
 | Knowledge MCP | https://mcp.motusdao.org/mcp |
 
 ## Machine entry points

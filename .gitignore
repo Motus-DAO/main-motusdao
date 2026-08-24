@@ -25,6 +25,9 @@
 /public/hero/morph/*.jpg
 /public/hero/morph/*.jpeg
 
+# scroll diagnostic output
+/scripts/.shots
+
 # debug
 npm-debug.log*
 yarn-debug.log*

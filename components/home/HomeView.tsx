@@ -7,6 +7,7 @@ import PrinciplesBento from "@/components/ui/bento";
 import { LINKS } from "@/lib/site";
 import { definitionWords, sequenceCues } from "@/lib/messages";
 import { ecosystemItems, menuConfig } from "@/data/ecosystem";
+import { AnswerReveal } from "@/components/home/AnswerReveal";
 import { StickyDefinitionScroll } from "@/components/home/StickyDefinitionScroll";
 import { ScrollCueSequence } from "@/components/home/ScrollCueSequence";
 import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
@@ -62,26 +63,48 @@ export function HomeView() {
       title: t("productHub"),
       desc: t("productHubDesc"),
       href: LINKS.hub,
+      eyebrow: t("productHubEyebrow"),
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+      className:
+        "max-lg:rounded-t-[2rem] lg:col-span-3 lg:rounded-tl-[2rem]",
     },
     {
       title: t("productAcademia"),
       desc: t("productAcademiaDesc"),
       href: LINKS.academia,
+      eyebrow: t("productAcademiaEyebrow"),
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      className: "lg:col-span-3 lg:rounded-tr-[2rem]",
     },
     {
       title: t("productPsychat"),
       desc: t("productPsychatDesc"),
       href: LINKS.psychat,
+      eyebrow: t("productPsychatEyebrow"),
+      image:
+        "https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1200&q=80",
+      className: "lg:col-span-2 lg:rounded-bl-[2rem]",
     },
     {
       title: t("productMetaverso"),
       desc: t("productMetaversoDesc"),
       href: LINKS.metaverso,
+      eyebrow: t("productMetaversoEyebrow"),
+      image:
+        "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
+      className: "lg:col-span-2",
     },
     {
-      title: t("productGobernanza"),
-      desc: t("productGobernanzaDesc"),
-      href: LINKS.gobernanza,
+      title: t("productAgents"),
+      desc: t("productAgentsDesc"),
+      href: LINKS.agents,
+      eyebrow: t("productAgentsEyebrow"),
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+      className:
+        "max-lg:rounded-b-[2rem] lg:col-span-2 lg:rounded-br-[2rem]",
     },
   ];
 
@@ -116,15 +139,16 @@ export function HomeView() {
           </ScrollMorphHero>
         </section>
 
-        {/* Answer block + sticky definition coda */}
-        <section className="border-y border-[var(--border-default)] bg-[var(--bg-elevated)]">
-          <div className="mx-auto max-w-3xl px-5 pt-14 md:px-8 md:pt-16">
-            <p className="section-label">{t("answerLabel")}</p>
-            <p className="text-lg leading-relaxed text-[var(--text-primary)] md:text-xl">
-              {t("answerBody")}
-            </p>
-          </div>
+        {/* Answer block — pinned word reveal */}
+        <section className="border-b border-[var(--border-default)] bg-[var(--bg-elevated)]">
+          <AnswerReveal label={t("answerLabel")} body={t("answerBody")} />
+        </section>
+
+        {/* Sticky definition coda — own beat before tri-path */}
+        <section className="border-b border-[var(--border-default)] bg-[var(--bg-primary)]">
           <StickyDefinitionScroll
+            label={t("definitionLabel")}
+            hint={t("definitionHint")}
             prefix={t("definitionPrefix")}
             srOnly={t("definitionSrOnly")}
             words={definitionWords[locale]}
@@ -165,7 +189,7 @@ export function HomeView() {
                 title: t("pathCommunityTitle"),
                 body: t("pathCommunityBody"),
                 cta: t("pathCommunityCta"),
-                href: LINKS.gobernanza,
+                href: LINKS.agents,
               },
             ].map((path) => (
               <article key={path.href} className="glass-panel p-6">
@@ -187,10 +211,10 @@ export function HomeView() {
           </div>
         </section>
 
-        {/* Living network layers + scroll sequence */}
+        {/* Living network — intro + layer cards (static, always readable) */}
         <section
           id="red-viva"
-          className="scroll-mt-24 border-y border-[var(--border-default)] bg-[var(--bg-elevated)]"
+          className="scroll-mt-24 border-t border-[var(--border-default)] bg-[var(--bg-elevated)]"
         >
           <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
             <p className="section-label">{t("layersLabel")}</p>
@@ -203,14 +227,6 @@ export function HomeView() {
             <p className="mt-4 max-w-2xl text-[var(--text-secondary)]">
               {t("layersIntro")}
             </p>
-
-            <div className="mt-10">
-              <ScrollCueSequence
-                hint={t("sequenceHint")}
-                srOnly={t("sequenceSrOnly")}
-                cues={sequenceCues[locale]}
-              />
-            </div>
 
             <div className="mt-12 grid gap-10 md:grid-cols-3">
               {[
@@ -231,96 +247,38 @@ export function HomeView() {
           </div>
         </section>
 
-        {/* Product map */}
+        {/* Scroll-synced layer sequence — optional, below static copy.
+            Full-bleed section: the pinned node must span the viewport width
+            (same as answer/definition), so do not wrap it in max-w here. */}
         <section
-          id="productos"
-          className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20"
+          id="red-viva-secuencia"
+          className="scroll-mt-24 border-y border-[var(--border-default)] bg-[var(--bg-primary)]"
         >
-          <p className="section-label">{t("productsLabel")}</p>
-          <h2
-            className="font-heading font-bold tracking-tight text-[var(--text-primary)]"
-            style={{ fontSize: "var(--text-h2)" }}
-          >
-            {t("productsTitle")}
-          </h2>
-          <p className="mt-4 max-w-2xl text-[var(--text-secondary)]">
-            {t("productsSupport")}
-          </p>
-          <ul className="mt-10 divide-y divide-[var(--border-default)] border-y border-[var(--border-default)]">
-            {products.map((product) => (
-              <li key={product.href}>
-                <a
-                  href={product.href}
-                  className="group flex flex-col gap-1 py-5 transition-colors md:flex-row md:items-baseline md:justify-between md:gap-8"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span className="font-heading text-lg font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[#EC4899]">
-                    {product.title}
-                  </span>
-                  <span className="max-w-xl text-sm text-[var(--text-secondary)] md:text-right">
-                    {product.desc}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ScrollCueSequence
+            hint={t("sequenceHint")}
+            srOnly={t("sequenceSrOnly")}
+            cues={sequenceCues[locale]}
+          />
         </section>
 
-        {/* Principles — Motus bento */}
+        {/* Network invariants — bento with outbound surface links */}
         <section
-          id="principios"
+          id="invariantes"
           className="scroll-mt-24 border-y border-[var(--border-default)] bg-[var(--bg-elevated)]"
         >
           <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
             <PrinciplesBento
-              label={t("principlesLabel")}
-              title={t("principlesTitle")}
-              lead={t("principlesLead")}
-              items={[
-                {
-                  eyebrow: t("principle1Eyebrow"),
-                  title: t("principle1Title"),
-                  description: t("principle1Body"),
-                  image:
-                    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
-                  className:
-                    "max-lg:rounded-t-[2rem] lg:col-span-3 lg:rounded-tl-[2rem]",
-                },
-                {
-                  eyebrow: t("principle2Eyebrow"),
-                  title: t("principle2Title"),
-                  description: t("principle2Body"),
-                  image:
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-                  className: "lg:col-span-3 lg:rounded-tr-[2rem]",
-                },
-                {
-                  eyebrow: t("principle3Eyebrow"),
-                  title: t("principle3Title"),
-                  description: t("principle3Body"),
-                  image:
-                    "https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1200&q=80",
-                  className: "lg:col-span-2 lg:rounded-bl-[2rem]",
-                },
-                {
-                  eyebrow: t("principle4Eyebrow"),
-                  title: t("principle4Title"),
-                  description: t("principle4Body"),
-                  image:
-                    "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
-                  className: "lg:col-span-2",
-                },
-                {
-                  eyebrow: t("principle5Eyebrow"),
-                  title: t("principle5Title"),
-                  description: t("principle5Body"),
-                  image:
-                    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-                  className:
-                    "max-lg:rounded-b-[2rem] lg:col-span-2 lg:rounded-br-[2rem]",
-                },
-              ]}
+              label={t("productsLabel")}
+              title={t("productsTitle")}
+              lead={t("productsSupport")}
+              items={products.map((product) => ({
+                eyebrow: product.eyebrow,
+                title: product.title,
+                description: product.desc,
+                href: product.href,
+                image: product.image,
+                className: product.className,
+              }))}
             />
           </div>
         </section>

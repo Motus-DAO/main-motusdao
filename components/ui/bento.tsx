@@ -9,6 +9,7 @@ export type BentoItem = {
   title: ReactNode;
   description: ReactNode;
   image: string;
+  href?: string;
   className?: string;
   fade?: ("top" | "bottom")[];
   dark?: boolean;
@@ -22,8 +23,7 @@ type PrinciplesBentoProps = {
 };
 
 /**
- * Motus Principles bento — structure from FUIBentoGridDark,
- * content wired for MotusDAO network invariants (not demo sales copy).
+ * Motus network-invariants bento — FUI-style grid with outbound surface links.
  */
 export default function PrinciplesBento({
   label,
@@ -50,6 +50,7 @@ export default function PrinciplesBento({
             eyebrow={item.eyebrow}
             title={item.title}
             description={item.description}
+            href={item.href}
             graphic={
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -72,6 +73,7 @@ export function BentoCard({
   eyebrow,
   title,
   description,
+  href,
   graphic,
   fade = [],
 }: {
@@ -80,23 +82,12 @@ export function BentoCard({
   eyebrow: ReactNode;
   title: ReactNode;
   description: ReactNode;
+  href?: string;
   graphic?: ReactNode;
   fade?: ("top" | "bottom")[];
 }) {
-  return (
-    <motion.div
-      initial="idle"
-      whileHover="active"
-      variants={{ idle: {}, active: {} }}
-      data-dark={dark ? "true" : undefined}
-      className={clsx(
-        className,
-        "group relative flex flex-col overflow-hidden rounded-lg",
-        "transform-gpu bg-black shadow-sm ring-1 ring-white/10",
-        "dark:bg-transparent dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]",
-        "data-[dark]:bg-gray-800 data-[dark]:ring-white/15",
-      )}
-    >
+  const body = (
+    <>
       <div className="relative h-[22rem] shrink-0 sm:h-[26rem] lg:h-[29rem]">
         {graphic}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -113,11 +104,57 @@ export function BentoCard({
         </p>
         <p className="mt-1 font-heading text-xl font-medium tracking-tight text-white sm:text-2xl/8">
           {title}
+          {href ? (
+            <span
+              aria-hidden
+              className="ml-2 inline-block text-[#EC4899] transition-transform group-hover:translate-x-0.5"
+            >
+              →
+            </span>
+          ) : null}
         </p>
         <p className="mt-2 max-w-[600px] text-sm/6 text-gray-200">
           {description}
         </p>
       </div>
+    </>
+  );
+
+  const shellClass = clsx(
+    className,
+    "group relative flex flex-col overflow-hidden rounded-lg",
+    "transform-gpu bg-black shadow-sm ring-1 ring-white/10",
+    "dark:bg-transparent dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]",
+    "data-[dark]:bg-gray-800 data-[dark]:ring-white/15",
+    href && "cursor-pointer transition-shadow hover:ring-[#EC4899]/40",
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial="idle"
+        whileHover="active"
+        variants={{ idle: {}, active: {} }}
+        data-dark={dark ? "true" : undefined}
+        className={shellClass}
+      >
+        {body}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      initial="idle"
+      whileHover="active"
+      variants={{ idle: {}, active: {} }}
+      data-dark={dark ? "true" : undefined}
+      className={shellClass}
+    >
+      {body}
     </motion.div>
   );
 }

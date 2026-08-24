@@ -2,13 +2,13 @@ import { MenuItem } from "@/components/InfiniteMenu";
 
 /**
  * Ecosystem items for the optional 3D explorer.
- * Canonical product copy lives in the SSR/product map sections.
+ * Canonical surface copy lives in the SSR network-invariants section.
  */
 export const ecosystemItems: MenuItem[] = [
   {
     image: "/hub.png",
     link: "https://app.motusdao.org/",
-    title: "Hub",
+    title: "Wellness Hub",
     description: "Aplicación principal de identidad, práctica y cuidado",
   },
   {
@@ -19,21 +19,21 @@ export const ecosystemItems: MenuItem[] = [
   },
   {
     image: "/psychat.png",
-    link: "https://psychat.motusdao.org/",
-    title: "PsyChat",
+    link: "https://chat.motusdao.org/",
+    title: "PsyChat / MotusAI",
     description: "Superficie conversacional híbrida humano–IA",
   },
   {
     image: "/metaverse.png",
-    link: "https://play.workadventu.re/@/motusdao/motusdao/great-place-to-work",
+    link: "https://metaverso.motusdao.org/",
     title: "Metaverso",
     description: "Espacios inmersivos para encuentro y comunidad",
   },
   {
     image: "/gobernanza.png",
-    link: "https://www.motusdao.org/gobernanza-motusdao",
-    title: "Gobernanza",
-    description: "Participación y dirección de la red viva",
+    link: "https://agents.motusdao.org/",
+    title: "Agents",
+    description: "Capa de agentes para coordinación y operación de la red",
   },
 ];
 

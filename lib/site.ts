@@ -6,10 +6,9 @@ export const SITE_NAME = "MotusDAO";
 export const LINKS = {
   hub: "https://app.motusdao.org/",
   academia: "https://app.motusdao.org/academia",
-  psychat: "https://psychat.motusdao.org/",
-  metaverso:
-    "https://play.workadventu.re/@/motusdao/motusdao/great-place-to-work",
-  gobernanza: "https://www.motusdao.org/gobernanza-motusdao",
+  psychat: "https://chat.motusdao.org/",
+  metaverso: "https://metaverso.motusdao.org/",
+  agents: "https://agents.motusdao.org/",
   mcp: "https://mcp.motusdao.org/mcp",
   mcpHealth: "https://mcp.motusdao.org/health",
 } as const;

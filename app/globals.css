@@ -78,6 +78,15 @@
   --text-h2: clamp(1.5rem, 3vw, 2.25rem);
   --leading-tight: 1.1;
   --leading-normal: 1.6;
+
+  /*
+    Pinned-stage geometry. Must match SCROLL_PIN_OFFSET in lib/scroll-trigger.ts:
+    a pinned element taller than --pin-stage hangs below the fold, and one
+    shorter leaves a strip of the neighbouring section on screen for the
+    entire pin. Both read as broken scrolling.
+  */
+  --pin-top: 72px;
+  --pin-stage: calc(100svh - var(--pin-top));
 }
 
 /* Light content mode — chrome (nav/footer) stays dark via .chrome-dark */
@@ -282,17 +291,70 @@ h4 {
     animation: none !important;
   }
 
-  .sticky-definition__list li {
+  .answer-reveal__word {
+    opacity: 1 !important;
+  }
+
+  .sticky-definition__word-item {
     animation: none !important;
     opacity: 1 !important;
     filter: none !important;
   }
+
+  .sticky-definition__pin {
+    min-height: auto !important;
+  }
+
+  .sticky-definition__stage {
+    align-items: start;
+    padding-block: 2rem 3rem;
+  }
+
+  .sticky-definition__list {
+    transform: none !important;
+  }
 }
 
 /*
-  Sticky definition coda (under “Qué es MotusDAO”).
+  GEO answer word-reveal (before “MotusDAO es / is”).
+  Adapted from SplitType + GSAP ScrollTrigger scrub/pin.
+  Motus restyle: body type, no uppercase, no page-level Lenis.
+*/
+.answer-reveal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--pin-stage);
+  background: var(--bg-elevated);
+}
+
+.answer-reveal__container {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+  padding-block: 2rem;
+}
+
+.answer-reveal__text {
+  margin: 0;
+  font-size: clamp(1.3rem, 1.9vw + 0.7rem, 2rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.answer-reveal__word {
+  display: inline-block;
+}
+
+.answer-reveal__word + .answer-reveal__word {
+  margin-left: 0.28em;
+}
+
+/*
+  Sticky definition coda — GSAP-pinned word cycle after answer reveal.
   Pattern adapted from Jhey Tompkins’ scroll-driven sticky list (MIT).
-  Hues stay inside Motus purple → pink. No page-level takeover.
 */
 .sticky-definition {
   --def-l: 0.78;
@@ -300,6 +362,11 @@ h4 {
   --hue-start: 303;
   --hue-end: 348;
   --count: 12;
+  display: flex;
+  flex-direction: column;
+  height: var(--pin-stage);
+  /* Opaque while GSAP pins this node fixed — section bg stays in the spacer. */
+  background: var(--bg-primary);
 }
 
 html.light .sticky-definition {
@@ -307,16 +374,42 @@ html.light .sticky-definition {
   --def-c: 0.19;
 }
 
+.sticky-definition__header {
+  flex: none;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 1.75rem clamp(1.25rem, 5vw, 5rem) 0;
+}
+
+.sticky-definition__hint {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sticky-definition__pin {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .sticky-definition__stage {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   column-gap: 0.28em;
-  align-items: start;
+  align-items: center;
   width: 100%;
   max-width: 72rem;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 5vw, 5rem);
-  padding-block: 28vh 42vh;
+  padding-block: 1.5rem;
   font-family: var(--font-heading), system-ui, sans-serif;
   font-size: clamp(1.35rem, 2.1vw + 1rem, 3.15rem);
   font-weight: 600;
@@ -325,9 +418,6 @@ html.light .sticky-definition {
 }
 
 .sticky-definition__prefix {
-  position: sticky;
-  top: 42vh;
-  top: calc(50% - 0.5lh);
   height: fit-content;
   margin: 0;
   background-image: var(--grad-brand);
@@ -340,39 +430,44 @@ html.light .sticky-definition {
   margin: 0;
   padding: 0;
   list-style: none;
+  will-change: transform;
 }
 
-.sticky-definition__list li {
+.sticky-definition__word-item {
   --step: calc((var(--hue-end) - var(--hue-start)) / max(var(--count) - 1, 1));
   overflow-wrap: anywhere;
+  min-height: 1.22em;
+  padding-block: 0.14em;
   color: oklch(
     var(--def-l) var(--def-c) calc(var(--hue-start) + (var(--step) * var(--i)))
   );
+  opacity: 0.52;
 }
 
-.sticky-definition__list li:last-of-type {
+.sticky-definition__word-item:last-of-type {
   background-image: var(--grad-brand);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+/* Fallback when GSAP pin is inactive (no motion preference) */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .sticky-definition__list li {
-      opacity: 0.22;
+    .sticky-definition:not(.sticky-definition--gsap) .sticky-definition__word-item {
+      opacity: 0.52;
       animation-name: sticky-definition-brighten;
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
-      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+      animation-range: cover calc(50% - 2lh) calc(50% + 2lh);
     }
 
-    .sticky-definition__list li:first-of-type {
-      --start-opacity: 1;
+    .sticky-definition:not(.sticky-definition--gsap) .sticky-definition__word-item:first-of-type {
+      --start-opacity: 0.72;
     }
 
-    .sticky-definition__list li:last-of-type {
+    .sticky-definition:not(.sticky-definition--gsap) .sticky-definition__word-item:last-of-type {
       --end-opacity: 1;
       --brightness: 1;
     }
@@ -381,14 +476,14 @@ html.light .sticky-definition {
 
 @keyframes sticky-definition-brighten {
   0% {
-    opacity: var(--start-opacity, 0.22);
+    opacity: var(--start-opacity, 0.52);
   }
   50% {
     opacity: 1;
     filter: brightness(var(--brightness, 1.12));
   }
   100% {
-    opacity: var(--end-opacity, 0.22);
+    opacity: var(--end-opacity, 0.52);
   }
 }
 
@@ -403,10 +498,15 @@ html.light .sticky-definition {
 */
 .seq-sequence {
   position: relative;
+  isolation: isolate;
 }
 
 .seq-sequence__hint {
-  margin-bottom: 0.75rem;
+  flex: none;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-top: 0.25rem;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -415,14 +515,27 @@ html.light .sticky-definition {
 }
 
 .seq-sequence__pin {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.75rem;
   width: 100%;
+  height: var(--pin-stage);
+  padding-inline: clamp(1.25rem, 5vw, 5rem);
+  padding-block: 1rem 1.5rem;
+  box-sizing: border-box;
+  /* Same rule as answer/definition: the pinned node must paint its own stage. */
+  background: var(--bg-primary);
 }
 
 .seq-sequence__frame {
   position: relative;
   aspect-ratio: 16 / 9;
-  max-height: 100svh;
   width: 100%;
+  max-width: 72rem;
+  max-height: calc(var(--pin-stage) - 5.5rem);
+  margin-inline: auto;
   overflow: hidden;
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
@@ -505,6 +618,7 @@ html.light .sticky-definition {
   background: #050208;
   pointer-events: none;
   transition: opacity 0.35s var(--ease-out);
+  opacity: 0;
 }
 
 .seq-sequence__keyhole-layer {

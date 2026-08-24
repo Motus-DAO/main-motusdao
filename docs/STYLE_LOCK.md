@@ -76,11 +76,10 @@ Inspired by [Web3Privacy Now](https://web3privacy.info/): mission first, then st
 2. **Answer block** (SEO/GEO) — 40–80 word definition of MotusDAO
 3. **Tri-path** — Users / Professionals / Community·Investors
 4. **What MotusDAO is** — layers / living network (protocol copy)
-5. **Product map** — Hub, Academia, PsyChat, Metaverso, Gobernanza (links out)
-6. **Principles** — privacy, consent, hybrid care (claims-safe)
-7. **Optional 3D explore** — InfiniteMenu
-8. **FAQ** — extractable Q&A
-9. **Final CTA** — return to tri-path / Hub
+5. **Network invariants** — bento of outbound surfaces (Wellness Hub, Academia, PsyChat / MotusAI, Metaverso, Agents)
+6. **Optional 3D explore** — InfiniteMenu
+7. **FAQ** — extractable Q&A
+8. **Final CTA** — return to tri-path / Hub
 
 Depth (docs, research, events, long essays) lives on **linked routes / subdomains**, not in the first viewport.
 

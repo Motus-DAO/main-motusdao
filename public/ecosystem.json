@@ -24,14 +24,14 @@
           "es": "Comunidad e inversores",
           "en": "Community & investors"
         },
-        "href": "https://www.motusdao.org/gobernanza-motusdao"
+        "href": "https://agents.motusdao.org/"
       }
     ]
   },
   "products": [
     {
-      "id": "hub",
-      "name": "Hub",
+      "id": "wellness-hub",
+      "name": "Wellness Hub",
       "url": "https://app.motusdao.org/"
     },
     {
@@ -42,21 +42,22 @@
     {
       "id": "psychat",
       "name": "PsyChat / MotusAI",
-      "url": "https://psychat.motusdao.org/"
+      "url": "https://chat.motusdao.org/"
     },
     {
       "id": "metaverso",
       "name": "Metaverso",
-      "url": "https://play.workadventu.re/@/motusdao/motusdao/great-place-to-work"
+      "url": "https://metaverso.motusdao.org/"
     },
     {
-      "id": "gobernanza",
-      "name": "Gobernanza",
-      "url": "https://www.motusdao.org/gobernanza-motusdao"
+      "id": "agents",
+      "name": "Agents",
+      "url": "https://agents.motusdao.org/"
     }
   ],
   "agents": {
     "mcp": "https://mcp.motusdao.org/mcp",
-    "llmsTxt": "https://www.motusdao.org/llms.txt"
+    "llmsTxt": "https://www.motusdao.org/llms.txt",
+    "surface": "https://agents.motusdao.org/"
   }
 }

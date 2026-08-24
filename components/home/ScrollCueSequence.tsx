@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  onViewportWidthChange,
+  registerScrollTrigger,
+  scheduleScrollTriggerRefresh,
+  ScrollTrigger,
+  REFRESH_PRIORITY_SEQUENCE,
+  SCROLL_PIN_TOP,
+} from "@/lib/scroll-trigger";
+import { sequencePinDistance } from "@/lib/scroll-budget";
 import { SEQUENCE_DURATION, sequenceBeats } from "@/data/sequence";
 
 type Cue = { title: string; body: string };
@@ -79,18 +87,19 @@ function preloadNeighbors(index: number) {
   for (let i = 0; i < sequenceBeats.length; i += 1) {
     if (i !== index && !order.includes(i)) order.push(i);
   }
-  order.forEach((i, delayIndex) => {
+  const timers = order.map((i, delayIndex) =>
     window.setTimeout(() => {
       const img = new Image();
       img.src = sequenceBeats[i].src;
-    }, delayIndex * 80);
-  });
+    }, delayIndex * 120),
+  );
+  return () => timers.forEach(window.clearTimeout);
 }
 
 /**
- * Scroll-synced image sequence with cue overlays and keyhole reveal.
- * Adapted from Less Rain’s GSAP ScrollTrigger slideshow demo.
- * Motus restyle: no ScrollSmoother, protocol cues, brand surfaces.
+ * Scroll-synced image sequence (Red viva layers).
+ * Measures after upstream pins (refreshPriority) so it cannot scrub while the
+ * reader is still in the definition coda / tri-path.
  */
 export function ScrollCueSequence({
   hint,
@@ -99,12 +108,12 @@ export function ScrollCueSequence({
 }: ScrollCueSequenceProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = rootRef.current;
     if (!root) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    registerScrollTrigger();
 
     const pin = root.querySelector<HTMLElement>(".seq-sequence__pin");
     const keyhole = root.querySelector<HTMLElement>(".seq-sequence__keyhole");
@@ -135,12 +144,12 @@ export function ScrollCueSequence({
 
     gsap.set(images, { opacity: 0 });
     gsap.set(overlays, { opacity: 0, y: 24 });
-    keyhole.style.clipPath = polyCss(shut);
 
     const applyKeyhole = (progress: number) => {
-      let t = 1;
-      if (progress < 0.12) t = progress / 0.12;
-      else if (progress > 0.88) t = 1 - (progress - 0.88) / 0.12;
+      // Open over the first tenth of the pin and stay open. Shutting it at the
+      // end left a masked, mostly-empty frame on screen as the section
+      // scrolled away, which read as a dead panel.
+      let t = progress < 0.1 ? progress / 0.1 : 1;
       t = Math.max(0, Math.min(1, t));
 
       keyhole.style.clipPath = polyCss(lerpPoly(shut, KEYHOLE_OPEN, t));
@@ -166,21 +175,21 @@ export function ScrollCueSequence({
       }
     };
 
-    const showImage = (index: number) => {
+    const showImage = (index: number, instant = false) => {
       if (index === activeImage || !images[index]) return;
       const prev = images[activeImage];
       const next = images[index];
 
       if (prev) {
         gsap.killTweensOf(prev);
-        if (!preloaderGone) prev.style.opacity = "0";
+        if (instant || !preloaderGone) prev.style.opacity = "0";
         else gsap.to(prev, { opacity: 0, duration: 0.45, ease: "power2.inOut" });
       }
 
       gsap.killTweensOf(next);
-      if (!preloaderGone) {
+      if (instant || !preloaderGone) {
         next.style.opacity = "1";
-        if (preloader) {
+        if (preloader && !preloaderGone) {
           preloader.style.opacity = "0";
           window.setTimeout(() => {
             preloader.remove();
@@ -196,16 +205,25 @@ export function ScrollCueSequence({
       activeImage = index;
     };
 
-    const showCue = (index: number) => {
+    const showCue = (index: number, instant = false) => {
       if (index === activeCue) return;
 
       overlays.forEach((el, i) => {
         gsap.killTweensOf(el);
         if (i === index) {
-          const yIn = direction === "down" ? 36 : -36;
-          gsap.set(el, { opacity: 0, y: yIn });
-          gsap.to(el, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" });
-        } else if (i === activeCue) {
+          if (instant) {
+            gsap.set(el, { opacity: 1, y: 0 });
+          } else {
+            const yIn = direction === "down" ? 36 : -36;
+            gsap.set(el, { opacity: 0, y: yIn });
+            gsap.to(el, {
+              opacity: 1,
+              y: 0,
+              duration: 0.32,
+              ease: "power2.out",
+            });
+          }
+        } else if (i === activeCue && !instant) {
           const yOut = direction === "down" ? -36 : 36;
           gsap.to(el, {
             opacity: 0,
@@ -222,55 +240,117 @@ export function ScrollCueSequence({
       activeCue = index;
     };
 
+    const render = (progress: number, instant = false) => {
+      const time = progress * SEQUENCE_DURATION;
+      applyKeyhole(progress);
+      showImage(findImageIndex(time), instant);
+      showCue(findCueIndex(time), instant);
+    };
+
+    /** Below the start line — never leave mid-scrub visuals from a stale refresh. */
+    const resetResting = () => {
+      direction = "down";
+      lastProgress = 0;
+      gsap.killTweensOf(images);
+      gsap.killTweensOf(overlays);
+      gsap.set(images, { opacity: 0 });
+      gsap.set(overlays, { opacity: 0, y: 24 });
+      activeImage = -1;
+      activeCue = -1;
+      applyKeyhole(0);
+      const first = findImageIndex(0);
+      if (images[first]) {
+        images[first].style.opacity = "1";
+        activeImage = first;
+      }
+    };
+
+    const syncFromTrigger = (self: ScrollTrigger) => {
+      lastProgress = self.progress;
+      if (self.isActive) {
+        render(self.progress, true);
+        return;
+      }
+      // Inactive: either still above this beat, or already past it.
+      if (self.progress === 0) resetResting();
+      else render(1, true);
+    };
+
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        trigger: root,
+        id: "motus-seq-sequence",
+        trigger: pin,
         pin,
-        start: "top top",
-        end: () => `+=${Math.round(window.innerHeight * 6.5)}`,
-        scrub: true,
+        start: SCROLL_PIN_TOP,
+        end: () => `+=${sequencePinDistance(sequenceBeats.length)}`,
         pinSpacing: true,
-        anticipatePin: 1,
+        anticipatePin: 0,
         invalidateOnRefresh: true,
+        refreshPriority: REFRESH_PRIORITY_SEQUENCE,
         onUpdate: (self) => {
           direction = self.progress >= lastProgress ? "down" : "up";
           lastProgress = self.progress;
-          const time = self.progress * SEQUENCE_DURATION;
-          applyKeyhole(self.progress);
-          showImage(findImageIndex(time));
-          showCue(findCueIndex(time));
+          render(self.progress);
+        },
+        onRefresh: syncFromTrigger,
+        // Entering the pin from above must start clean — not mid-timeline from
+        // a refresh that ran while start/end were still wrong.
+        onEnter: (self) => {
+          lastProgress = self.progress;
+          render(self.progress, true);
+        },
+        onEnterBack: (self) => {
+          lastProgress = self.progress;
+          render(self.progress, true);
+        },
+        onLeave: () => {
+          render(1, true);
+        },
+        onLeaveBack: () => {
+          resetResting();
         },
       });
     }, root);
 
-    const first = findImageIndex(0);
-    const firstImg = images[first]?.querySelector("img");
-    const start = () => {
-      showImage(first);
-      showCue(findCueIndex(0.4));
-      applyKeyhole(0);
-      preloadNeighbors(first);
-    };
+    resetResting();
 
-    if (firstImg?.complete && firstImg.naturalWidth > 0) start();
-    else firstImg?.addEventListener("load", start, { once: true });
+    // One refresh after mount — do not refresh again on every frame decode;
+    // that re-measures mid-scroll and was desyncing this pin from the coda.
+    scheduleScrollTriggerRefresh();
+    const stopResize = onViewportWidthChange(scheduleScrollTriggerRefresh);
+
+    let cancelPreload: (() => void) | null = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        cancelPreload = preloadNeighbors(findImageIndex(0));
+      },
+      { rootMargin: "100% 0px" },
+    );
+    observer.observe(root);
 
     return () => {
+      observer.disconnect();
+      cancelPreload?.();
+      stopResize();
       ctx.revert();
+      scheduleScrollTriggerRefresh();
     };
   }, []);
 
   return (
     <div ref={rootRef} className="seq-sequence">
       <p className="sr-only">{srOnly}</p>
-      <p className="seq-sequence__hint" aria-hidden="true">
-        {hint}
-      </p>
 
       <div className="seq-sequence__pin">
+        <p className="seq-sequence__hint" aria-hidden="true">
+          {hint}
+        </p>
+
         <div className="seq-sequence__frame">
           <div className="seq-sequence__images">
-            {sequenceBeats.map((beat, index) => (
+            {sequenceBeats.map((beat) => (
               <div key={beat.src} className="seq-sequence__img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -278,8 +358,9 @@ export function ScrollCueSequence({
                   alt=""
                   width={1600}
                   height={900}
+                  loading="lazy"
                   decoding="async"
-                  fetchPriority={index === 0 ? "high" : "low"}
+                  fetchPriority="low"
                 />
               </div>
             ))}
@@ -324,7 +405,7 @@ export function ScrollCueSequence({
             <strong>{cue.title}.</strong> {cue.body}
             {sequenceBeats[index] ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={sequenceBeats[index].src} alt="" />
+              <img src={sequenceBeats[index].src} alt="" loading="lazy" />
             ) : null}
           </li>
         ))}

@@ -4,7 +4,7 @@ export const messages = {
   es: {
     brand: "MotusDAO",
     navExplore: "Ecosistema",
-    navPrinciples: "Principios",
+    navPrinciples: "Invariantes",
     navFaq: "FAQ",
     themeLight: "Claro",
     themeDark: "Oscuro",
@@ -21,6 +21,8 @@ export const messages = {
     answerBody:
       "MotusDAO es una infraestructura clínica, comunitaria y tecnológica para construir redes vivas de cuidado en salud mental. Integra privacidad por diseño, coordinación distribuida, educación clínica y herramientas de cuidado híbrido humano–IA. No es solo un marketplace: es arquitectura de cuidado.",
     definitionPrefix: "MotusDAO es",
+    definitionLabel: "Definición en capas",
+    definitionHint: "Desplaza para recorrer los conceptos",
     definitionSrOnly:
       "MotusDAO es infraestructura, privacidad, cuidado mental, comunidad, tecnología, ecosistema y arquitectura de redes vivas de cuidado.",
     triPathLabel: "Elige tu entrada",
@@ -30,15 +32,15 @@ export const messages = {
     pathUsersTitle: "Usuarios",
     pathUsersBody:
       "Personas que buscan acompañamiento, continuidad y mayor control sobre su proceso de cuidado.",
-    pathUsersCta: "Entrar al Hub",
+    pathUsersCta: "Entrar al Wellness Hub",
     pathProsTitle: "Profesionales de salud mental",
     pathProsBody:
       "Psicólogos y PSM que construyen práctica digital con formación, comunidad y herramientas — sin promesas vacías.",
     pathProsCta: "Ver Academia",
     pathCommunityTitle: "Comunidad e inversores",
     pathCommunityBody:
-      "Quienes sostienen la red: gobernanza, infraestructura y alianzas a largo plazo.",
-    pathCommunityCta: "Ver gobernanza",
+      "Quienes sostienen la red: agentes, infraestructura y alianzas a largo plazo.",
+    pathCommunityCta: "Ver Agents",
     layersLabel: "Red viva",
     layersTitle: "El cuidado no cabe en una sesión aislada.",
     layersIntro:
@@ -62,23 +64,28 @@ export const messages = {
     layer3Title: "Soberanía",
     layer3Body:
       "Privacidad por diseño, consentimiento y mayor control de la persona sobre su identidad e información.",
-    productsLabel: "Productos",
-    productsTitle: "Mapa del ecosistema",
+    productsLabel: "Invariantes",
+    productsTitle: "Invariantes de la red",
     productsSupport:
-      "Cada superficie cumple un rol. La profundidad vive en los enlaces, no en esta página.",
-    productHub: "Hub",
+      "Cada superficie cumple un rol estable en la topología. La profundidad vive en los enlaces, no en esta página.",
+    productHub: "Wellness Hub",
     productHubDesc: "Aplicación principal de identidad, práctica y cuidado.",
+    productHubEyebrow: "Cuidado",
     productAcademia: "Academia",
     productAcademiaDesc: "Formación profesional para psicología digital ética.",
+    productAcademiaEyebrow: "Formación",
     productPsychat: "PsyChat / MotusAI",
     productPsychatDesc:
       "Superficie conversacional híbrida. No sustituye juicio clínico.",
+    productPsychatEyebrow: "Híbrido",
     productMetaverso: "Metaverso",
     productMetaversoDesc: "Espacios inmersivos para encuentro y comunidad.",
-    productGobernanza: "Gobernanza",
-    productGobernanzaDesc: "Participación y dirección de la red viva.",
+    productMetaversoEyebrow: "Encuentro",
+    productAgents: "Agents",
+    productAgentsDesc: "Capa de agentes para coordinación y operación de la red.",
+    productAgentsEyebrow: "Coordinación",
     principlesLabel: "Principios",
-    principlesTitle: "Invariantes de la red",
+    principlesTitle: "Arquitectura de cuidado",
     principlesLead: "Arquitectura de cuidado, no promesas vacías.",
     principle1Eyebrow: "Clínica",
     principle1Title: "Responsabilidad clínica humana",
@@ -119,7 +126,7 @@ export const messages = {
       "No. MotusDAO opera como cuidado híbrido humano–IA. El juicio clínico permanece en el profesional.",
     faq4Q: "¿Cómo empiezo?",
     faq4A:
-      "Elige tu puerta en Explora el ecosistema: Hub para usuarios, Academia para profesionales, o gobernanza para comunidad e inversores.",
+      "Elige tu puerta en Explora el ecosistema: Wellness Hub para usuarios, Academia para profesionales, o Agents para comunidad e inversores.",
     finalTitle: "La red se entra por un camino claro.",
     finalSupport:
       "Vuelve a las tres puertas — o continúa directo al Hub.",
@@ -132,7 +139,7 @@ export const messages = {
   en: {
     brand: "MotusDAO",
     navExplore: "Ecosystem",
-    navPrinciples: "Principles",
+    navPrinciples: "Invariants",
     navFaq: "FAQ",
     themeLight: "Light",
     themeDark: "Dark",
@@ -149,6 +156,8 @@ export const messages = {
     answerBody:
       "MotusDAO is clinical, community, and technological infrastructure for building living networks of mental health care. It integrates privacy by design, distributed coordination, clinical education, and human–AI hybrid care tools. It is not only a marketplace: it is care architecture.",
     definitionPrefix: "MotusDAO is",
+    definitionLabel: "Definition in layers",
+    definitionHint: "Scroll to move through the concepts",
     definitionSrOnly:
       "MotusDAO is infrastructure, privacy, mental care, community, technology, ecosystem, and architecture for living networks of care.",
     triPathLabel: "Choose your entry",
@@ -158,15 +167,15 @@ export const messages = {
     pathUsersTitle: "Users",
     pathUsersBody:
       "People seeking accompaniment, continuity, and more control over their care process.",
-    pathUsersCta: "Enter the Hub",
+    pathUsersCta: "Enter the Wellness Hub",
     pathProsTitle: "Mental health professionals",
     pathProsBody:
       "Psychologists and PSMs building digital practice with training, community, and tools — without empty promises.",
     pathProsCta: "See Academy",
     pathCommunityTitle: "Community & investors",
     pathCommunityBody:
-      "Those who sustain the network: governance, infrastructure, and long-horizon partnerships.",
-    pathCommunityCta: "See governance",
+      "Those who sustain the network: agents, infrastructure, and long-horizon partnerships.",
+    pathCommunityCta: "See Agents",
     layersLabel: "Living network",
     layersTitle: "Care does not fit inside an isolated session.",
     layersIntro:
@@ -190,23 +199,28 @@ export const messages = {
     layer3Title: "Sovereignty",
     layer3Body:
       "Privacy by design, consent, and greater personal control over identity and information.",
-    productsLabel: "Products",
-    productsTitle: "Ecosystem map",
+    productsLabel: "Invariants",
+    productsTitle: "Network invariants",
     productsSupport:
-      "Each surface has a role. Depth lives in the links, not on this page.",
-    productHub: "Hub",
+      "Each surface holds a stable role in the topology. Depth lives in the links, not on this page.",
+    productHub: "Wellness Hub",
     productHubDesc: "Primary app for identity, practice, and care.",
+    productHubEyebrow: "Care",
     productAcademia: "Academy",
     productAcademiaDesc: "Professional training for ethical digital psychology.",
+    productAcademiaEyebrow: "Training",
     productPsychat: "PsyChat / MotusAI",
     productPsychatDesc:
       "Hybrid conversational surface. Does not replace clinical judgment.",
+    productPsychatEyebrow: "Hybrid",
     productMetaverso: "Metaverse",
     productMetaversoDesc: "Immersive spaces for gathering and community.",
-    productGobernanza: "Governance",
-    productGobernanzaDesc: "Participation and direction of the living network.",
+    productMetaversoEyebrow: "Gathering",
+    productAgents: "Agents",
+    productAgentsDesc: "Agent layer for coordination and network operations.",
+    productAgentsEyebrow: "Coordination",
     principlesLabel: "Principles",
-    principlesTitle: "Network invariants",
+    principlesTitle: "Care architecture",
     principlesLead: "Care architecture, not empty promises.",
     principle1Eyebrow: "Clinical",
     principle1Title: "Human clinical accountability",
@@ -247,7 +261,7 @@ export const messages = {
       "No. MotusDAO operates as human–AI hybrid care. Clinical judgment remains with the professional.",
     faq4Q: "How do I start?",
     faq4A:
-      "Choose your door in Explore the ecosystem: Hub for users, Academy for professionals, or governance for community and investors.",
+      "Choose your door in Explore the ecosystem: Wellness Hub for users, Academy for professionals, or Agents for community and investors.",
     finalTitle: "The network is entered through a clear path.",
     finalSupport: "Return to the three doors — or continue straight to the Hub.",
     finalCtaExplore: "Explore the ecosystem",
