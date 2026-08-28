@@ -78,7 +78,7 @@ export function SiteHeader() {
               <a href="#explora" className="transition-opacity hover:opacity-100" style={{ color: tok.t2 }}>
                 {t("navExplore")}
               </a>
-              <a href="#invariantes" className="transition-opacity hover:opacity-100" style={{ color: tok.t2 }}>
+              <a href="#ecosistema" className="transition-opacity hover:opacity-100" style={{ color: tok.t2 }}>
                 {t("navPrinciples")}
               </a>
               <a href="#faq" className="transition-opacity hover:opacity-100" style={{ color: tok.t2 }}>

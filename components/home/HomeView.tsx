@@ -64,8 +64,7 @@ export function HomeView() {
       desc: t("productHubDesc"),
       href: LINKS.hub,
       eyebrow: t("productHubEyebrow"),
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+      image: "/ecosystem/wellness-hub.jpg",
       className:
         "max-lg:rounded-t-[2rem] lg:col-span-3 lg:rounded-tl-[2rem]",
     },
@@ -74,8 +73,7 @@ export function HomeView() {
       desc: t("productAcademiaDesc"),
       href: LINKS.academia,
       eyebrow: t("productAcademiaEyebrow"),
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      image: "/ecosystem/academia.jpg",
       className: "lg:col-span-3 lg:rounded-tr-[2rem]",
     },
     {
@@ -83,8 +81,7 @@ export function HomeView() {
       desc: t("productPsychatDesc"),
       href: LINKS.psychat,
       eyebrow: t("productPsychatEyebrow"),
-      image:
-        "https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1200&q=80",
+      image: "/ecosystem/psychat.png",
       className: "lg:col-span-2 lg:rounded-bl-[2rem]",
     },
     {
@@ -92,8 +89,7 @@ export function HomeView() {
       desc: t("productMetaversoDesc"),
       href: LINKS.metaverso,
       eyebrow: t("productMetaversoEyebrow"),
-      image:
-        "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
+      image: "/ecosystem/metaverso.jpg",
       className: "lg:col-span-2",
     },
     {
@@ -101,8 +97,7 @@ export function HomeView() {
       desc: t("productAgentsDesc"),
       href: LINKS.agents,
       eyebrow: t("productAgentsEyebrow"),
-      image:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+      image: "/ecosystem/agents.jpg",
       className:
         "max-lg:rounded-b-[2rem] lg:col-span-2 lg:rounded-br-[2rem]",
     },
@@ -261,9 +256,9 @@ export function HomeView() {
           />
         </section>
 
-        {/* Network invariants — bento with outbound surface links */}
+        {/* Ecosystem map — bento with outbound surface links */}
         <section
-          id="invariantes"
+          id="ecosistema"
           className="scroll-mt-24 border-y border-[var(--border-default)] bg-[var(--bg-elevated)]"
         >
           <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">

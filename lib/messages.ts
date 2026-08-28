@@ -4,7 +4,7 @@ export const messages = {
   es: {
     brand: "MotusDAO",
     navExplore: "Ecosistema",
-    navPrinciples: "Invariantes",
+    navPrinciples: "Ecosistema",
     navFaq: "FAQ",
     themeLight: "Claro",
     themeDark: "Oscuro",
@@ -24,7 +24,7 @@ export const messages = {
     definitionLabel: "Definición en capas",
     definitionHint: "Desplaza para recorrer los conceptos",
     definitionSrOnly:
-      "MotusDAO es infraestructura, privacidad, cuidado mental, comunidad, tecnología, ecosistema y arquitectura de redes vivas de cuidado.",
+      "MotusDAO es infraestructura, privacidad, identidad, cuidado mental, comunidad, tecnología, pagos, ecosistema y arquitectura de redes vivas de cuidado.",
     triPathLabel: "Elige tu entrada",
     triPathTitle: "Tres puertas al mismo territorio.",
     triPathSupport:
@@ -64,10 +64,10 @@ export const messages = {
     layer3Title: "Soberanía",
     layer3Body:
       "Privacidad por diseño, consentimiento y mayor control de la persona sobre su identidad e información.",
-    productsLabel: "Invariantes",
-    productsTitle: "Invariantes de la red",
+    productsLabel: "Ecosistema",
+    productsTitle: "Mapa del ecosistema",
     productsSupport:
-      "Cada superficie cumple un rol estable en la topología. La profundidad vive en los enlaces, no en esta página.",
+      "Cada superficie cumple un rol. La profundidad vive en los enlaces, no en esta página.",
     productHub: "Wellness Hub",
     productHubDesc: "Aplicación principal de identidad, práctica y cuidado.",
     productHubEyebrow: "Cuidado",
@@ -139,7 +139,7 @@ export const messages = {
   en: {
     brand: "MotusDAO",
     navExplore: "Ecosystem",
-    navPrinciples: "Invariants",
+    navPrinciples: "Ecosystem",
     navFaq: "FAQ",
     themeLight: "Light",
     themeDark: "Dark",
@@ -159,7 +159,7 @@ export const messages = {
     definitionLabel: "Definition in layers",
     definitionHint: "Scroll to move through the concepts",
     definitionSrOnly:
-      "MotusDAO is infrastructure, privacy, mental care, community, technology, ecosystem, and architecture for living networks of care.",
+      "MotusDAO is infrastructure, privacy, identity, mental care, community, technology, payments, ecosystem, and architecture for living networks of care.",
     triPathLabel: "Choose your entry",
     triPathTitle: "Three doors into the same territory.",
     triPathSupport:
@@ -199,10 +199,10 @@ export const messages = {
     layer3Title: "Sovereignty",
     layer3Body:
       "Privacy by design, consent, and greater personal control over identity and information.",
-    productsLabel: "Invariants",
-    productsTitle: "Network invariants",
+    productsLabel: "Ecosystem",
+    productsTitle: "Ecosystem map",
     productsSupport:
-      "Each surface holds a stable role in the topology. Depth lives in the links, not on this page.",
+      "Each surface has a role. Depth lives in the links, not on this page.",
     productHub: "Wellness Hub",
     productHubDesc: "Primary app for identity, practice, and care.",
     productHubEyebrow: "Care",
@@ -279,9 +279,11 @@ export const definitionWords: Record<Locale, readonly string[]> = {
   es: [
     "infraestructura.",
     "privacidad.",
+    "identidad.",
     "cuidado mental.",
     "comunidad.",
     "tecnología.",
+    "pagos.",
     "ecosistema.",
     "coordinación.",
     "consentimiento.",
@@ -293,9 +295,11 @@ export const definitionWords: Record<Locale, readonly string[]> = {
   en: [
     "infrastructure.",
     "privacy.",
+    "identity.",
     "mental care.",
     "community.",
     "technology.",
+    "payments.",
     "ecosystem.",
     "coordination.",
     "consent.",

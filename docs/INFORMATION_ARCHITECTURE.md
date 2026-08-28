@@ -15,7 +15,7 @@ Hero (morph cards: hybrid line → manifesto + CTA on scroll)
        ├─ Mental health professionals
        └─ Community / investors
   → Living network / layers (protocol copy + scroll-synced sequence)
-  → Network invariants (bento + outbound surface links)
+  → Ecosystem map (bento + outbound surface links)
   → Optional #ecosistema-3d (InfiniteMenu)
   → FAQ
   → Final CTA → tri-path

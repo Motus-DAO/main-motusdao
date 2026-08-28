@@ -6,11 +6,11 @@
 
 - [Home](https://www.motusdao.org/): Manifesto and product gateway
 - [Explore ecosystem](https://www.motusdao.org/#explora): Users · Professionals · Community/Investors
-- [Network invariants](https://www.motusdao.org/#invariantes): Stable surfaces of the living network
+- [Ecosystem map](https://www.motusdao.org/#ecosistema): Outbound Motus surfaces
 - [FAQ](https://www.motusdao.org/#faq): Extractable Q&A
 - [3D map](https://www.motusdao.org/#ecosistema-3d): Optional interactive explorer
 
-## Network invariants
+## Ecosystem
 
 - [Wellness Hub](https://app.motusdao.org/): Primary care and practice application
 - [Academia](https://app.motusdao.org/academia): Professional training
