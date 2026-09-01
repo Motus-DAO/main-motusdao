@@ -10,6 +10,7 @@ import { ecosystemItems, menuConfig } from "@/data/ecosystem";
 import { AnswerReveal } from "@/components/home/AnswerReveal";
 import { StickyDefinitionScroll } from "@/components/home/StickyDefinitionScroll";
 import { ScrollCueSequence } from "@/components/home/ScrollCueSequence";
+import { TriPathIndex } from "@/components/home/TriPathIndex";
 import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
 
 const InfiniteMenu = dynamic(() => import("@/components/InfiniteMenu"), {
@@ -155,8 +156,10 @@ export function HomeView() {
             {t("triPathSupport")}
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
+          <TriPathIndex
+            brand={t("brand")}
+            nodeLabel={t("morphCardLabel")}
+            paths={[
               {
                 title: t("pathUsersTitle"),
                 body: t("pathUsersBody"),
@@ -175,24 +178,8 @@ export function HomeView() {
                 cta: t("pathCommunityCta"),
                 href: LINKS.agents,
               },
-            ].map((path) => (
-              <article key={path.href} className="glass-panel p-6">
-                <h3 className="font-heading text-xl font-semibold text-[var(--text-primary)]">
-                  {path.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-                  {path.body}
-                </p>
-                <a
-                  href={path.href}
-                  className="link-accent mt-5 inline-block text-sm"
-                  rel="noopener noreferrer"
-                >
-                  {path.cta} →
-                </a>
-              </article>
-            ))}
-          </div>
+            ]}
+          />
         </section>
 
         {/* Sticky definition coda — depth after doors */}
