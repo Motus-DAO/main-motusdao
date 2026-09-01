@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { SiteHeader } from "@/components/site/SiteHeader";
+import { ConstructionNotice } from "@/components/site/ConstructionNotice";
 import { useSite } from "@/components/providers/SiteProviders";
 import PrinciplesBento from "@/components/ui/bento";
 import { LINKS } from "@/lib/site";
@@ -116,6 +117,7 @@ export function HomeView() {
       <div className="network-atmosphere" aria-hidden />
 
       <SiteHeader />
+      <ConstructionNotice />
 
       <main>
         {/* Hero — morph cards: hybrid line, then manifesto on scroll */}

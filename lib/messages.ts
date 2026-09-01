@@ -135,6 +135,12 @@ export const messages = {
     footerTagline: "Redes vivas de cuidado en salud mental.",
     footerMcp: "Motus Knowledge MCP",
     footerRights: "MotusDAO",
+    constructionLabel: "Estado",
+    constructionTitle: "Este sitio está en construcción.",
+    constructionBody:
+      "La página pública de MotusDAO aún se está armando. Puedes explorarla. El contenido y los accesos pueden cambiar.",
+    constructionCta: "Seguir explorando",
+    constructionClose: "Cerrar aviso",
   },
   en: {
     brand: "MotusDAO",
@@ -269,6 +275,12 @@ export const messages = {
     footerTagline: "Living networks of mental health care.",
     footerMcp: "Motus Knowledge MCP",
     footerRights: "MotusDAO",
+    constructionLabel: "Status",
+    constructionTitle: "This site is under construction.",
+    constructionBody:
+      "The MotusDAO public page is still being assembled. You can explore it. Content and entry points may change.",
+    constructionCta: "Continue exploring",
+    constructionClose: "Close notice",
   },
 } as const;
 
