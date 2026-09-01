@@ -139,18 +139,7 @@ export function HomeView() {
           <AnswerReveal label={t("answerLabel")} body={t("answerBody")} />
         </section>
 
-        {/* Sticky definition coda — own beat before tri-path */}
-        <section className="border-b border-[var(--border-default)] bg-[var(--bg-primary)]">
-          <StickyDefinitionScroll
-            label={t("definitionLabel")}
-            hint={t("definitionHint")}
-            prefix={t("definitionPrefix")}
-            srOnly={t("definitionSrOnly")}
-            words={definitionWords[locale]}
-          />
-        </section>
-
-        {/* Tri-path */}
+        {/* Tri-path — doors right after the short definition, before conceptual depth */}
         <section
           id="explora"
           className="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:px-8 md:py-20"
@@ -204,6 +193,17 @@ export function HomeView() {
               </article>
             ))}
           </div>
+        </section>
+
+        {/* Sticky definition coda — depth after doors */}
+        <section className="border-y border-[var(--border-default)] bg-[var(--bg-primary)]">
+          <StickyDefinitionScroll
+            label={t("definitionLabel")}
+            hint={t("definitionHint")}
+            prefix={t("definitionPrefix")}
+            srOnly={t("definitionSrOnly")}
+            words={definitionWords[locale]}
+          />
         </section>
 
         {/* Living network — intro + layer cards (static, always readable) */}

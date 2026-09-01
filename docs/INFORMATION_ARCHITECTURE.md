@@ -9,11 +9,11 @@ Job: manifesto + product clarity + **Explora el ecosistema**.
 ```
 Hero (morph cards: hybrid line → manifesto + CTA on scroll)
   → Answer block (what MotusDAO is)
-       └ sticky definition coda (MotusDAO es / is + protocol nouns)
   → Tri-path gateway
        ├─ Users / seekers
        ├─ Mental health professionals
        └─ Community / investors
+  → Sticky definition coda (MotusDAO es / is + protocol nouns)
   → Living network / layers (protocol copy + scroll-synced sequence)
   → Ecosystem map (bento + outbound surface links)
   → Optional #ecosistema-3d (InfiniteMenu)

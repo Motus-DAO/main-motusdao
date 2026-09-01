@@ -74,8 +74,8 @@ Inspired by [Web3Privacy Now](https://web3privacy.info/): mission first, then st
 
 1. **Hero** — MotusDAO brand + manifesto-grade line + CTA *Explora el ecosistema*
 2. **Answer block** (SEO/GEO) — 40–80 word definition of MotusDAO
-3. **Tri-path** — Users / Professionals / Community·Investors
-4. **What MotusDAO is** — layers / living network (protocol copy)
+3. **Tri-path** — Users / Professionals / Community·Investors (doors before conceptual depth)
+4. **What MotusDAO is** — definition coda + layers / living network (protocol copy)
 5. **Ecosystem map** — bento of outbound surfaces (Wellness Hub, Academia, PsyChat / MotusAI, Metaverso, Agents)
 6. **Optional 3D explore** — InfiniteMenu
 7. **FAQ** — extractable Q&A

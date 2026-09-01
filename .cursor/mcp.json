@@ -2,7 +2,22 @@
   "mcpServers": {
     "motusdao-knowledge": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.motusdao.org/mcp"]
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.motusdao.org/mcp"
+      ]
+    },
+    "rootrouter": {
+      "command": "node",
+      "args": [
+        "/Users/brahma101/Projects/Work/RootRouter/Repositories/RootRouter/packages/mcp/dist/server.js"
+      ],
+      "env": {
+        "ROOTROUTER_STORE_PATH": "/Users/brahma101/.rootrouter/landingmotus/cursor-store.json",
+        "ROOTROUTER_DEFAULT_AGENT_ID": "landingmotus",
+        "EMBEDDING_PROVIDER": "tfidf"
+      }
     }
   }
 }
