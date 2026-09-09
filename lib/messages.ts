@@ -33,21 +33,43 @@ export const messages = {
     pathUsersBody:
       "Personas que buscan acompañamiento, continuidad y mayor control sobre su proceso de cuidado.",
     pathUsersCta: "Entrar al Wellness Hub",
+    pathUsersJob: "Necesito apoyo",
+    pathUsersDetail:
+      "Una puerta a la red de cuidado: identidad, continuidad y herramientas híbridas. El apoyo no llega como matching garantizado.",
+    pathUsersChip1: "Continuidad",
+    pathUsersChip2: "Consentimiento",
+    pathUsersChip3: "Wellness Hub",
+    pathUsersImageAlt: "Wellness Hub",
     pathProsTitle: "Profesionales de salud mental",
     pathProsBody:
       "Psicólogos y PSM que construyen práctica digital con formación, comunidad y herramientas — sin promesas vacías.",
     pathProsCta: "Ver Academia",
+    pathProsJob: "Quiero formarme",
+    pathProsDetail:
+      "Formación para práctica digital ética, comunidad profesional y herramientas. Motus no emite cédula ni garantiza pacientes o ingresos.",
+    pathProsChip1: "Academia",
+    pathProsChip2: "Comunidad",
+    pathProsChip3: "Ética clínica",
+    pathProsImageAlt: "Academia Motus",
     pathCommunityTitle: "Comunidad e inversores",
     pathCommunityBody:
       "Quienes sostienen la red: agentes, infraestructura y alianzas a largo plazo.",
     pathCommunityCta: "Ver Agents",
+    pathCommunityJob: "Quiero construir con la red",
+    pathCommunityDetail:
+      "Agentes, infraestructura y alianzas para coordinar y sostener programas de cuidado a largo plazo. Sin promesa de retorno.",
+    pathCommunityChip1: "Agentes",
+    pathCommunityChip2: "Infraestructura",
+    pathCommunityChip3: "Gobernanza",
+    pathCommunityImageAlt: "Motus Agents",
+    triPathNodeHint: "Tres puertas. Un mismo nodo.",
     layersLabel: "Red viva",
     layersTitle: "El cuidado no cabe en una sesión aislada.",
     layersIntro:
       "La terapia necesita infraestructura a su alrededor: comunidad, educación, supervisión, seguimiento y coordinación.",
     sequenceHint: "Desplaza para recorrer las capas",
     sequenceSrOnly:
-      "Ocho capas de MotusDAO: clínica, comunidad, tecnología, privacidad, educación, coordinación, gobernanza y red viva.",
+      "Seis capas de MotusDAO: clínica, comunidad, tecnología, privacidad, educación y red viva.",
     morphIntroTitle: "La red toma forma.",
     morphIntroHint: "DESPLAZA PARA EXPLORAR",
     morphActiveTitle: "Topología de cuidado",
@@ -135,12 +157,44 @@ export const messages = {
     footerTagline: "Redes vivas de cuidado en salud mental.",
     footerMcp: "Motus Knowledge MCP",
     footerRights: "MotusDAO",
+    mottyFab: "Hablar con Motty",
+    mottyTitle: "Motty",
+    mottySubtitle: "Guía del ecosistema MotusDAO",
+    mottyDisclaimer:
+      "No soy terapeuta ni MotusAI. El juicio clínico permanece en profesionales.",
+    mottyCrisis:
+      "Si estás en crisis, MotusDAO no es un servicio de emergencia. Busca ayuda local inmediata.",
+    mottyGreeting:
+      "Soy Motty. Puedo orientarte sobre qué es MotusDAO y por cuál puerta entrar: Wellness Hub, Academia o Agents.",
+    mottyPlaceholder: "Pregunta sobre MotusDAO",
+    mottySend: "Enviar",
+    mottyClose: "Cerrar chat",
+    mottyThinking: "Motty está consultando conocimiento público…",
+    mottyError: "No pude responder ahora. Intenta de nuevo.",
+    mottyRateLimit: "Demasiados mensajes. Espera un momento e intenta otra vez.",
     constructionLabel: "Estado",
     constructionTitle: "Este sitio está en construcción.",
     constructionBody:
       "La página pública de MotusDAO aún se está armando. Puedes explorarla. El contenido y los accesos pueden cambiar.",
     constructionCta: "Seguir explorando",
     constructionClose: "Cerrar aviso",
+    splitLabel: "Profesionales",
+    splitTitle: "Lo que sostiene una práctica digital.",
+    splitSupport:
+      "Recursos, formación y una secuencia de cinco bloques. Motus no emite cédula ni garantiza pacientes o ingresos.",
+    splitHint: "Desplaza para abrir",
+    splitEnd: "La ruta se recorre. No se salta.",
+    split1Title: "Recursos para tu práctica",
+    split1Body:
+      "Biblioteca, herramientas y procesos mínimos para ordenar una consulta digital. Sin garantía de pacientes ni ingresos.",
+    split2Title: "Formación y comunidad",
+    split2Body:
+      "Academia y comunidad de pares: criterios, supervisión y conversación. Motus no emite cédula.",
+    split3Title: "Una ruta de cinco bloques",
+    split3Body:
+      "Génesis, Fundamentos, Praxis, Validación y Portal Clínico. Una secuencia interna — no un título oficial.",
+    splitSrOnly:
+      "Tres capas de la práctica profesional: recursos para tu práctica, formación y comunidad, y una ruta de cinco bloques: Génesis, Fundamentos, Praxis, Validación y Portal Clínico.",
   },
   en: {
     brand: "MotusDAO",
@@ -174,21 +228,43 @@ export const messages = {
     pathUsersBody:
       "People seeking accompaniment, continuity, and more control over their care process.",
     pathUsersCta: "Enter the Wellness Hub",
+    pathUsersJob: "I need support",
+    pathUsersDetail:
+      "A door into the care network: identity, continuity, and hybrid tools. Support does not arrive as guaranteed matching.",
+    pathUsersChip1: "Continuity",
+    pathUsersChip2: "Consent",
+    pathUsersChip3: "Wellness Hub",
+    pathUsersImageAlt: "Wellness Hub",
     pathProsTitle: "Mental health professionals",
     pathProsBody:
       "Psychologists and PSMs building digital practice with training, community, and tools — without empty promises.",
     pathProsCta: "See Academy",
+    pathProsJob: "I want to train",
+    pathProsDetail:
+      "Training for ethical digital practice, professional community, and tools. Motus does not issue a license and does not guarantee patients or income.",
+    pathProsChip1: "Academy",
+    pathProsChip2: "Community",
+    pathProsChip3: "Clinical ethics",
+    pathProsImageAlt: "Motus Academy",
     pathCommunityTitle: "Community & investors",
     pathCommunityBody:
       "Those who sustain the network: agents, infrastructure, and long-horizon partnerships.",
     pathCommunityCta: "See Agents",
+    pathCommunityJob: "I want to build with the network",
+    pathCommunityDetail:
+      "Agents, infrastructure, and partnerships to coordinate and sustain care programs over a long horizon. No return is promised.",
+    pathCommunityChip1: "Agents",
+    pathCommunityChip2: "Infrastructure",
+    pathCommunityChip3: "Governance",
+    pathCommunityImageAlt: "Motus Agents",
+    triPathNodeHint: "Three doors. One node.",
     layersLabel: "Living network",
     layersTitle: "Care does not fit inside an isolated session.",
     layersIntro:
       "Therapy needs infrastructure around it: community, education, supervision, follow-up, and coordination.",
     sequenceHint: "Scroll to move through the layers",
     sequenceSrOnly:
-      "Eight MotusDAO layers: clinic, community, technology, privacy, education, coordination, governance, and living network.",
+      "Six MotusDAO layers: clinic, community, technology, privacy, education, and living network.",
     morphIntroTitle: "The network takes shape.",
     morphIntroHint: "SCROLL TO EXPLORE",
     morphActiveTitle: "Topology of care",
@@ -275,12 +351,44 @@ export const messages = {
     footerTagline: "Living networks of mental health care.",
     footerMcp: "Motus Knowledge MCP",
     footerRights: "MotusDAO",
+    mottyFab: "Talk with Motty",
+    mottyTitle: "Motty",
+    mottySubtitle: "Guide to the MotusDAO ecosystem",
+    mottyDisclaimer:
+      "I am not a therapist and not MotusAI. Clinical judgment remains with professionals.",
+    mottyCrisis:
+      "If you are in crisis, MotusDAO is not emergency care. Seek local help immediately.",
+    mottyGreeting:
+      "I am Motty. I can help you understand MotusDAO and which door to enter: Wellness Hub, Academy, or Agents.",
+    mottyPlaceholder: "Ask about MotusDAO",
+    mottySend: "Send",
+    mottyClose: "Close chat",
+    mottyThinking: "Motty is consulting public knowledge…",
+    mottyError: "I could not answer just now. Try again.",
+    mottyRateLimit: "Too many messages. Wait a moment and try again.",
     constructionLabel: "Status",
     constructionTitle: "This site is under construction.",
     constructionBody:
       "The MotusDAO public page is still being assembled. You can explore it. Content and entry points may change.",
     constructionCta: "Continue exploring",
     constructionClose: "Close notice",
+    splitLabel: "Professionals",
+    splitTitle: "What holds a digital practice together.",
+    splitSupport:
+      "Resources, training, and a five-block sequence. Motus does not issue a license and does not guarantee patients or income.",
+    splitHint: "Scroll to open",
+    splitEnd: "The route is walked. It is not skipped.",
+    split1Title: "Resources for your practice",
+    split1Body:
+      "Library, tools, and minimum processes to order a digital consultation. No guarantee of patients or income.",
+    split2Title: "Training and community",
+    split2Body:
+      "Academy and peer community: shared criteria, supervision, and conversation. Motus does not issue a license.",
+    split3Title: "A five-block route",
+    split3Body:
+      "Genesis, Foundations, Praxis, Validation, and Clinical Portal. An internal sequence — not an official title.",
+    splitSrOnly:
+      "Three layers of professional practice: resources for your practice, training and community, and a five-block route: Genesis, Foundations, Praxis, Validation, and Clinical Portal.",
   },
 } as const;
 
@@ -349,14 +457,6 @@ export const sequenceCues: Record<
       body: "Formación para práctica digital ética. No sustituye una cédula.",
     },
     {
-      title: "Coordinación",
-      body: "Roles y rutas sin centralizar el poder sobre los datos.",
-    },
-    {
-      title: "Gobernanza",
-      body: "Dirección de la red viva. No es adorno institucional.",
-    },
-    {
       title: "Red viva",
       body: "Arquitectura de cuidado. No es un marketplace.",
     },
@@ -381,14 +481,6 @@ export const sequenceCues: Record<
     {
       title: "Education",
       body: "Training for ethical digital practice. It is not a license.",
-    },
-    {
-      title: "Coordination",
-      body: "Roles and routes without centralizing power over data.",
-    },
-    {
-      title: "Governance",
-      body: "Direction of the living network. Not institutional decoration.",
     },
     {
       title: "Living network",

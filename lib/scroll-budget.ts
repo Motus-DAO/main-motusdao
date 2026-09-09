@@ -8,8 +8,9 @@
  *   answer reveal         1.6 vh max
  *   definition coda       1.8 vh max
  *   layer sequence        2.2 vh max
+ *   practice split card   1.8 vh (280vh track, pin-stage sticky)
  *   -------------------------------
- *   total                ~6.4 vh
+ *   total                ~8.2 vh
  *
  * Two constraints hold this together:
  *   1. Total scroll-locked motion stays under ~7 viewports.

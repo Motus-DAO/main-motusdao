@@ -8,7 +8,7 @@ This repo is the **reference MotusDAO public site** and the prototype for a repe
 |-------|------------|
 | Canonical site | `motusdao.org` (this project) — manifesto + product + ecosystem |
 | Tenant sites | `{slug}.motusdao.org` — psychologist / practice sites |
-| Agent runtime | Hermes / OpenClaw (or similar) talking to Motus MCP + site tools |
+| Agent runtime | Hermes / OpenClaw (or similar) talking to Motus MCP + site tools — **operators / Motty Personal only, never public Motty** |
 | Operator UI | Chat (and later controls) so the owner edits their site themselves |
 | Billing | Subscription; optional custom domain sub-rent when they pay |
 

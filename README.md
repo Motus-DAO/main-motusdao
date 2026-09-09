@@ -12,6 +12,7 @@ Primary CTA: **Explora el ecosistema** → Users · Mental Health Professionals 
 | [docs/INFORMATION_ARCHITECTURE.md](./docs/INFORMATION_ARCHITECTURE.md) | Home + gateways (protocol-site pattern) |
 | [docs/AGENTIC_OS.md](./docs/AGENTIC_OS.md) | Repeatable agentic site OS / tenants |
 | [docs/PSYCHOLOGIST_CUSTOMER_JOBS.md](./docs/PSYCHOLOGIST_CUSTOMER_JOBS.md) | Psychologist customer jobs (claims-safe) |
+| [docs/MOTTY.md](./docs/MOTTY.md) | Public Motty guide (FAB + knowledge loop) |
 | [docs/README.md](./docs/README.md) | Index + Cursor skills |
 
 ## Agent setup

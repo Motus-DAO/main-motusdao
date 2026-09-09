@@ -59,6 +59,7 @@ Do not turn the home hero into a psychologist-only ad funnel.
 - Cyan / Orbitron / terminal (Psychat-only)
 - Stats strips, pill clusters, floating badges on hero media
 - WebGL / InfiniteMenu as the first thing landers see
+- Motty FAB on first paint or on hero media (delayed FAB is a documented exception; see §10)
 
 ## 5. InfiniteMenu (WebGL)
 
@@ -98,3 +99,17 @@ All public copy passes `motus-claims-guardrails`. No guaranteed patients, income
 ## 9. Future product (site OS) — out of band for v1 UI, in-band for skills
 
 Tenant pattern (later): `{slug}.motusdao.org` → psychologist site + agent chat → subscription. This repo is the **canonical MotusDAO site** and the **reference implementation** for the site OS skill (`motus-site-os`).
+
+## 10. Motty FAB (approved exception, 2026-09-08)
+
+Public Motty may appear as a **delayed** floating button on home.
+
+| Field | Lock |
+|-------|------|
+| When | After first viewport: ~4.5s **or** scroll past ~70vh — not first paint |
+| Where | Bottom-right; `z-index` below site header |
+| What | Glass panel, purple→pink chrome. No cyan / PsyChat terminal |
+| Job | Ecosystem guide (doors). Not MotusAI, not a therapist |
+| Do not | Place on hero media, change primary CTA, mount InfiniteMenu in the widget |
+
+Details: [`docs/MOTTY.md`](./MOTTY.md).

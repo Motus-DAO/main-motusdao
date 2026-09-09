@@ -13,6 +13,7 @@ import { StickyDefinitionScroll } from "@/components/home/StickyDefinitionScroll
 import { ScrollCueSequence } from "@/components/home/ScrollCueSequence";
 import { TriPathIndex } from "@/components/home/TriPathIndex";
 import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
+import { ScrollSplitCard } from "@/components/ui/scroll-split-card";
 
 const InfiniteMenu = dynamic(() => import("@/components/InfiniteMenu"), {
   ssr: false,
@@ -161,24 +162,100 @@ export function HomeView() {
           <TriPathIndex
             brand={t("brand")}
             nodeLabel={t("morphCardLabel")}
+            nodeHint={t("triPathNodeHint")}
             paths={[
               {
                 title: t("pathUsersTitle"),
                 body: t("pathUsersBody"),
                 cta: t("pathUsersCta"),
                 href: LINKS.hub,
+                job: t("pathUsersJob"),
+                detail: t("pathUsersDetail"),
+                chips: [
+                  t("pathUsersChip1"),
+                  t("pathUsersChip2"),
+                  t("pathUsersChip3"),
+                ],
+                image: "/ecosystem/wellness-hub.jpg",
+                imageAlt: t("pathUsersImageAlt"),
+                layoutId: "door-users",
               },
               {
                 title: t("pathProsTitle"),
                 body: t("pathProsBody"),
                 cta: t("pathProsCta"),
                 href: LINKS.academia,
+                job: t("pathProsJob"),
+                detail: t("pathProsDetail"),
+                chips: [
+                  t("pathProsChip1"),
+                  t("pathProsChip2"),
+                  t("pathProsChip3"),
+                ],
+                image: "/ecosystem/academia.jpg",
+                imageAlt: t("pathProsImageAlt"),
+                layoutId: "door-pros",
               },
               {
                 title: t("pathCommunityTitle"),
                 body: t("pathCommunityBody"),
                 cta: t("pathCommunityCta"),
                 href: LINKS.agents,
+                job: t("pathCommunityJob"),
+                detail: t("pathCommunityDetail"),
+                chips: [
+                  t("pathCommunityChip1"),
+                  t("pathCommunityChip2"),
+                  t("pathCommunityChip3"),
+                ],
+                image: "/ecosystem/agents.jpg",
+                imageAlt: t("pathCommunityImageAlt"),
+                layoutId: "door-community",
+              },
+            ]}
+          />
+        </section>
+
+        {/* Professional practice — scroll-split of the psychologist route */}
+        <section
+          id="practica"
+          className="scroll-mt-24 border-t border-[var(--border-default)] bg-[var(--bg-primary)]"
+        >
+          <div className="mx-auto max-w-6xl px-5 pt-16 md:px-8 md:pt-20">
+            <p className="section-label">{t("splitLabel")}</p>
+            <h2
+              className="max-w-2xl font-heading font-bold tracking-tight text-[var(--text-primary)]"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
+              {t("splitTitle")}
+            </h2>
+            <p className="mt-4 max-w-2xl text-[var(--text-secondary)]">
+              {t("splitSupport")}
+            </p>
+            <p className="sr-only">{t("splitSrOnly")}</p>
+          </div>
+          <ScrollSplitCard
+            imageSrc="/ecosystem/academia.jpg"
+            startHint={t("splitHint")}
+            endLine={t("splitEnd")}
+            cards={[
+              {
+                title: t("split1Title"),
+                description: t("split1Body"),
+                bgColor: "#e8e4ef",
+                textColor: "#14081f",
+              },
+              {
+                title: t("split2Title"),
+                description: t("split2Body"),
+                bgColor: "#9333EA",
+                textColor: "#ffffff",
+              },
+              {
+                title: t("split3Title"),
+                description: t("split3Body"),
+                bgColor: "#0b101a",
+                textColor: "#ffffff",
               },
             ]}
           />
