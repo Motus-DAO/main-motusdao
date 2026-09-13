@@ -49,6 +49,11 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} — Redes vivas de cuidado`,
     description,
   },
+  icons: {
+    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    shortcut: "/logo.svg",
+    apple: [{ url: "/logo.svg", sizes: "180x180", type: "image/svg+xml" }],
+  },
   robots: {
     index: true,
     follow: true,
