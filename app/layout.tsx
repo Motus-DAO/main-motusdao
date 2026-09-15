@@ -19,34 +19,34 @@ const body = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const description = messages.es.answerBody;
+const description = messages.en.answerBody;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Redes vivas de cuidado`,
+    default: `${SITE_NAME} — Living networks of care`,
     template: `%s · ${SITE_NAME}`,
   },
   description,
   alternates: {
     canonical: "/",
     languages: {
-      es: "/",
       en: "/",
+      es: "/",
     },
   },
   openGraph: {
     type: "website",
-    locale: "es_MX",
-    alternateLocale: ["en_US"],
+    locale: "en_US",
+    alternateLocale: ["es_MX"],
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Infraestructura para redes vivas de cuidado`,
+    title: `${SITE_NAME} — Infrastructure for living networks of care`,
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Redes vivas de cuidado`,
+    title: `${SITE_NAME} — Living networks of care`,
     description,
   },
   icons: {
@@ -81,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

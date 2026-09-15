@@ -33,8 +33,8 @@ Do not turn the home hero into a psychologist-only ad funnel.
 
 | Field | Lock |
 |-------|------|
-| Default | **Spanish (`es`)** |
-| Secondary | English (`en`) |
+| Default | **English (`en`)** |
+| Secondary | Spanish (`es`) |
 | UX | Language toggle; persist preference |
 | Copy voice | Protocol-level (see skill `motus-protocol-copy`) — not startup hype |
 

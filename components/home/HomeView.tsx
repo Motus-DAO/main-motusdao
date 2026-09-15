@@ -67,7 +67,7 @@ export function HomeView() {
       desc: t("productHubDesc"),
       href: LINKS.hub,
       eyebrow: t("productHubEyebrow"),
-      image: "/ecosystem/wellness-hub.jpg",
+      image: "/ecosystem/wellness-hub-care.jpg",
       className:
         "max-lg:rounded-t-[2rem] lg:col-span-3 lg:rounded-tl-[2rem]",
     },
@@ -76,7 +76,7 @@ export function HomeView() {
       desc: t("productAcademiaDesc"),
       href: LINKS.academia,
       eyebrow: t("productAcademiaEyebrow"),
-      image: "/ecosystem/academia.jpg",
+      image: "/ecosystem/academia-care.jpg",
       className: "lg:col-span-3 lg:rounded-tr-[2rem]",
     },
     {
@@ -129,7 +129,6 @@ export function HomeView() {
             activeTitle={t("heroHeadline")}
             activeBody={t("heroSupport")}
             cardBackEyebrow={t("morphCardEyebrow")}
-            cardBackLabel={t("morphCardLabel")}
           >
             <PrimaryButton href="#explora">{t("heroCta")}</PrimaryButton>
             <SecondaryButton href={LINKS.hub} external>
@@ -176,7 +175,7 @@ export function HomeView() {
                   t("pathUsersChip2"),
                   t("pathUsersChip3"),
                 ],
-                image: "/ecosystem/wellness-hub.jpg",
+                image: "/ecosystem/users-door.jpg",
                 imageAlt: t("pathUsersImageAlt"),
                 layoutId: "door-users",
               },
@@ -208,7 +207,7 @@ export function HomeView() {
                   t("pathCommunityChip2"),
                   t("pathCommunityChip3"),
                 ],
-                image: "/ecosystem/agents.jpg",
+                image: "/ecosystem/community-door.jpg",
                 imageAlt: t("pathCommunityImageAlt"),
                 layoutId: "door-community",
               },

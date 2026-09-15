@@ -35,7 +35,7 @@ function applyTheme(theme: Theme) {
 }
 
 export function SiteProviders({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
+  const [locale, setLocaleState] = useState<Locale>("en");
   const [theme, setThemeState] = useState<Theme>("dark");
   const [ready, setReady] = useState(false);
 
@@ -44,7 +44,7 @@ export function SiteProviders({ children }: { children: ReactNode }) {
     const storedTheme = window.localStorage.getItem(THEME_KEY);
 
     const nextLocale: Locale =
-      storedLocale === "en" || storedLocale === "es" ? storedLocale : "es";
+      storedLocale === "en" || storedLocale === "es" ? storedLocale : "en";
 
     /* Motus Main Site defaults to dark (operational design system). */
     let nextTheme: Theme = "dark";

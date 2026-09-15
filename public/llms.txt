@@ -1,6 +1,6 @@
 # MotusDAO
 
-> MotusDAO es una infraestructura clínica, comunitaria y tecnológica para construir redes vivas de cuidado en salud mental. Integra privacidad por diseño, coordinación distribuida, educación clínica y herramientas de cuidado híbrido humano–IA.
+> MotusDAO is clinical, community, and technological infrastructure for building living networks of mental health care. It integrates privacy by design, distributed coordination, clinical education, and human–AI hybrid care tools.
 
 ## Main
 

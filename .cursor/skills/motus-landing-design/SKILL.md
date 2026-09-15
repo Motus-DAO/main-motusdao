@@ -30,7 +30,7 @@ Build the **canonical MotusDAO public site**: manifesto + product clarity for an
 
 1. Confirm change matches STYLE_LOCK (hero budget, CTA, InfiniteMenu placement).
 2. Prefer SSR / server components for text; client only for theme, i18n toggle, motion, WebGL.
-3. ES default strings; EN via toggle (keys in a single dictionary module).
+3. EN default strings; ES via toggle (keys in a single dictionary module).
 4. One section = one job, one headline, short support line.
 
 ---

@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "message_too_long" }, { status: 400 });
   }
 
-  const locale: Locale = body.locale === "en" ? "en" : "es";
+  const locale: Locale = body.locale === "es" ? "es" : "en";
   const session = await readMottySession(locale);
   session.locale = locale;
 

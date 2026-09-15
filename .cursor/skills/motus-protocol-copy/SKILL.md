@@ -4,7 +4,7 @@ description: >-
   Writes MotusDAO public copy in protocol-level voice: infrastructure essays that
   upgrade mental models, not startup hype. Use when drafting manifesto, hero,
   principles, FAQ, product map blurbs, investor/community prose, or any Motus
-  landing microcopy. Spanish default; English twin when i18n requires it.
+  landing microcopy. English default; Spanish twin when i18n requires it.
 ---
 
 # Motus Protocol-Level Copy

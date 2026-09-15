@@ -133,7 +133,6 @@ type FlipCardProps = {
   sweep: MotionValue<number>;
   parallax: MotionValue<number>;
   backEyebrow: string;
-  backLabel: string;
 };
 
 /**
@@ -149,7 +148,6 @@ function FlipCard({
   sweep,
   parallax,
   backEyebrow,
-  backLabel,
 }: FlipCardProps) {
   const placement = useTransform(
     [morph, sweep, parallax],
@@ -161,6 +159,7 @@ function FlipCard({
   const y = useTransform(placement, (p) => p.y);
   const rotate = useTransform(placement, (p) => p.rotate);
   const scale = useTransform(morph, (m) => lerp(1, layout.maxScale, m));
+  const sequence = String(index + 1).padStart(2, "0");
 
   return (
     <motion.div
@@ -214,8 +213,8 @@ function FlipCard({
           <p className="mb-1 text-[8px] font-bold uppercase tracking-widest text-[#EC4899]">
             {backEyebrow}
           </p>
-          <p className="text-center text-[10px] font-medium text-white">
-            {backLabel}
+          <p className="text-center text-[10px] font-medium tabular-nums text-white">
+            {sequence}
           </p>
         </div>
       </motion.div>
@@ -229,7 +228,6 @@ export type ScrollMorphHeroProps = {
   activeTitle: string;
   activeBody: string;
   cardBackEyebrow?: string;
-  cardBackLabel?: string;
   children?: ReactNode;
   className?: string;
 };
@@ -244,7 +242,6 @@ export default function ScrollMorphHero({
   activeTitle,
   activeBody,
   cardBackEyebrow = "Motus",
-  cardBackLabel = "Nodo",
   children,
   className = "",
 }: ScrollMorphHeroProps) {
@@ -427,7 +424,6 @@ export default function ScrollMorphHero({
                   sweep={sweep}
                   parallax={parallax}
                   backEyebrow={cardBackEyebrow}
-                  backLabel={cardBackLabel}
                 />
               ))
             : null}

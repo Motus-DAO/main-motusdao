@@ -198,7 +198,7 @@ Site OS tenants, psychologist GTM ads, pricing, `/inversores` long form. See `do
 - InfiniteMenu below-fold (`#ecosistema-3d`).
 - Claims-safe FAQ (marketplace, income, AI).
 - `prefers-reduced-motion` on pinned sections.
-- ES default, EN twin in `lib/messages.ts`.
+- EN default, ES twin in `lib/messages.ts`.
 
 ---
 
