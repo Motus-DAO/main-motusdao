@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jura, Inter } from "next/font/google";
 import { SiteProviders } from "@/components/providers/SiteProviders";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { MottyWidget } from "@/components/motty/MottyWidget";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -87,10 +88,12 @@ export default function RootLayout({
       </head>
       <body className={`${heading.variable} ${body.variable} antialiased`}>
         <JsonLd />
-        <SiteProviders>
-          {children}
-          <MottyWidget />
-        </SiteProviders>
+        <PostHogProvider>
+          <SiteProviders>
+            {children}
+            <MottyWidget />
+          </SiteProviders>
+        </PostHogProvider>
       </body>
     </html>
   );
