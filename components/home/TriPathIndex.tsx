@@ -22,6 +22,7 @@ type TriPathIndexProps = {
   nodeLabel: string;
   brand: string;
   nodeHint: string;
+  onPathClick?: (path: TriPathItem) => void;
 };
 
 const INDEX = ["01", "02", "03"] as const;
@@ -33,12 +34,18 @@ export function TriPathIndex({
   nodeLabel,
   brand,
   nodeHint,
+  onPathClick,
 }: TriPathIndexProps) {
   return (
     <div className="mt-12">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {paths.map((path, i) => (
-          <DoorShiftCard key={path.href} path={path} index={i} />
+          <DoorShiftCard
+            key={path.href}
+            path={path}
+            index={i}
+            onClick={() => onPathClick?.(path)}
+          />
         ))}
       </div>
 
@@ -75,9 +82,11 @@ export function TriPathIndex({
 function DoorShiftCard({
   path,
   index,
+  onClick,
 }: {
   path: TriPathItem;
   index: number;
+  onClick?: () => void;
 }) {
   const Icon = ICONS[index] ?? HeartHandshake;
   const ordinal = INDEX[index] ?? "00";
@@ -178,6 +187,7 @@ function DoorShiftCard({
       <ShiftCard
         href={path.href}
         aria-label={`${path.title}. ${path.cta}`}
+        onClick={onClick}
         topContent={topContent}
         topAnimateContent={topAnimateContent}
         middleContent={middleContent}

@@ -10,6 +10,7 @@ export type BentoItem = {
   description: ReactNode;
   image: string;
   href?: string;
+  onClick?: () => void;
   className?: string;
   fade?: ("top" | "bottom")[];
   dark?: boolean;
@@ -51,6 +52,7 @@ export default function PrinciplesBento({
             title={item.title}
             description={item.description}
             href={item.href}
+            onClick={item.onClick}
             graphic={
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -74,6 +76,7 @@ export function BentoCard({
   title,
   description,
   href,
+  onClick,
   graphic,
   fade = [],
 }: {
@@ -83,6 +86,7 @@ export function BentoCard({
   title: ReactNode;
   description: ReactNode;
   href?: string;
+  onClick?: () => void;
   graphic?: ReactNode;
   fade?: ("top" | "bottom")[];
 }) {
@@ -135,6 +139,7 @@ export function BentoCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onClick}
         initial="idle"
         whileHover="active"
         variants={{ idle: {}, active: {} }}

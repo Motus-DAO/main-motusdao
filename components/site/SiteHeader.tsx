@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useSite } from "@/components/providers/SiteProviders";
 import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
 import { LINKS } from "@/lib/site";
+import { trackCta } from "@/lib/track-cta";
 
 const T = {
   dark: {
@@ -89,6 +90,7 @@ export function SiteHeader() {
                 className="transition-opacity hover:opacity-100"
                 style={{ color: tok.t2 }}
                 rel="noopener noreferrer"
+                onClick={() => trackCta("Hub", { href: LINKS.hub, location: "header" })}
               >
                 Hub
               </a>
@@ -146,6 +148,9 @@ export function SiteHeader() {
                 href="#explora"
                 className="hidden whitespace-nowrap rounded-[10px] px-[18px] py-[9px] text-sm font-semibold tracking-wide text-white sm:inline-flex"
                 style={{ backgroundImage: "var(--grad-brand)" }}
+                onClick={() =>
+                  trackCta(t("heroCta"), { href: "#explora", location: "header" })
+                }
               >
                 {t("heroCta")}
               </a>

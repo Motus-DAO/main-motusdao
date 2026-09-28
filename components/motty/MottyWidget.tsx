@@ -6,6 +6,7 @@ import { useSite } from "@/components/providers/SiteProviders";
 import { MottyAvatar } from "@/components/motty/MottyAvatar";
 import { MottyMarkdown } from "@/components/motty/MottyMarkdown";
 import type { MottyMessage } from "@/lib/motty/types";
+import { trackCta } from "@/lib/track-cta";
 
 const REVEAL_MS = 4500;
 const REVEAL_SCROLL_RATIO = 0.7;
@@ -258,7 +259,12 @@ export function MottyWidget() {
       <button
         type="button"
         className="pointer-events-auto flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-black/75 shadow-glow ring-1 ring-white/15 transition-transform motion-safe:hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pink"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => {
+          setOpen((value) => {
+            if (!value) trackCta("Motty", { location: "fab" });
+            return !value;
+          });
+        }}
         aria-expanded={open}
         aria-label={open ? t("mottyClose") : t("mottyFab")}
       >

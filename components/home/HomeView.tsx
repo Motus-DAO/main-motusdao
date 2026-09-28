@@ -14,6 +14,7 @@ import { ScrollCueSequence } from "@/components/home/ScrollCueSequence";
 import { TriPathIndex } from "@/components/home/TriPathIndex";
 import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
 import { ScrollSplitCard } from "@/components/ui/scroll-split-card";
+import { trackCta } from "@/lib/track-cta";
 
 const InfiniteMenu = dynamic(() => import("@/components/InfiniteMenu"), {
   ssr: false,
@@ -27,12 +28,20 @@ const InfiniteMenu = dynamic(() => import("@/components/InfiniteMenu"), {
 function PrimaryButton({
   href,
   children,
+  label,
+  location,
 }: {
   href: string;
   children: React.ReactNode;
+  label: string;
+  location: string;
 }) {
   return (
-    <a href={href} className="btn-primary">
+    <a
+      href={href}
+      className="btn-primary"
+      onClick={() => trackCta(label, { href, location })}
+    >
       {children}
     </a>
   );
@@ -42,15 +51,20 @@ function SecondaryButton({
   href,
   children,
   external,
+  label,
+  location,
 }: {
   href: string;
   children: React.ReactNode;
   external?: boolean;
+  label: string;
+  location: string;
 }) {
   return (
     <a
       href={href}
       className="btn-ghost"
+      onClick={() => trackCta(label, { href, location })}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
@@ -130,8 +144,15 @@ export function HomeView() {
             activeBody={t("heroSupport")}
             cardBackEyebrow={t("morphCardEyebrow")}
           >
-            <PrimaryButton href="#explora">{t("heroCta")}</PrimaryButton>
-            <SecondaryButton href={LINKS.hub} external>
+            <PrimaryButton href="#explora" label={t("heroCta")} location="hero">
+              {t("heroCta")}
+            </PrimaryButton>
+            <SecondaryButton
+              href={LINKS.hub}
+              external
+              label={t("heroSecondary")}
+              location="hero"
+            >
               {t("heroSecondary")}
             </SecondaryButton>
           </ScrollMorphHero>
@@ -162,6 +183,9 @@ export function HomeView() {
             brand={t("brand")}
             nodeLabel={t("morphCardLabel")}
             nodeHint={t("triPathNodeHint")}
+            onPathClick={(path) =>
+              trackCta(path.cta, { href: path.href, location: "tri_path" })
+            }
             paths={[
               {
                 title: t("pathUsersTitle"),
@@ -338,6 +362,11 @@ export function HomeView() {
                 href: product.href,
                 image: product.image,
                 className: product.className,
+                onClick: () =>
+                  trackCta(String(product.title), {
+                    href: product.href,
+                    location: "ecosistema",
+                  }),
               }))}
             />
           </div>
@@ -409,8 +438,19 @@ export function HomeView() {
             {t("finalSupport")}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <PrimaryButton href="#explora">{t("finalCtaExplore")}</PrimaryButton>
-            <SecondaryButton href={LINKS.hub} external>
+            <PrimaryButton
+              href="#explora"
+              label={t("finalCtaExplore")}
+              location="final"
+            >
+              {t("finalCtaExplore")}
+            </PrimaryButton>
+            <SecondaryButton
+              href={LINKS.hub}
+              external
+              label={t("finalCtaHub")}
+              location="final"
+            >
               {t("finalCtaHub")}
             </SecondaryButton>
           </div>

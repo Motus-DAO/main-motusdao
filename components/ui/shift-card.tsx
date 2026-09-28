@@ -15,6 +15,7 @@ type ShiftCardProps = {
   topAnimateContent?: React.ReactNode;
   bottomContent?: React.ReactNode;
   href?: string;
+  onClick?: () => void;
   collapsedHeight?: number;
   "aria-label"?: string;
   transition?: React.ComponentProps<typeof motion.div>["transition"];
@@ -90,6 +91,7 @@ function ShiftCard({
   middleContent,
   bottomContent,
   href,
+  onClick,
   collapsedHeight = 48,
   transition,
   "aria-label": ariaLabel,
@@ -213,6 +215,7 @@ function ShiftCard({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}
+        onClick={onClick}
         {...motionBind}
       >
         {inner}
@@ -221,7 +224,11 @@ function ShiftCard({
   }
 
   return (
-    <motion.div ref={rootRef as React.Ref<HTMLDivElement>} {...motionBind}>
+    <motion.div
+      ref={rootRef as React.Ref<HTMLDivElement>}
+      onClick={onClick}
+      {...motionBind}
+    >
       {inner}
     </motion.div>
   );
